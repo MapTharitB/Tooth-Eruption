@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Tooth Eruption Timeline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#f3f6f8;--card:#fff;--tx:#1f2a33;--mut:#5d6b76;--ln:#d5dde3;--trk:#cfd8de;--win:#e08a00;--sel:#1f2a33;--btn:#e8eef2;--acc:#2f6f9f;--glow:#ffb400;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a1f;--card:#1e262d;--tx:#e6edf2;--mut:#9aa9b5;--ln:#33404a;--trk:#3a4853;--sel:#fff;--btn:#2a353e;--acc:#7fb8e3}}
+:root[data-theme="dark"]{--bg:#141a1f;--card:#1e262d;--tx:#e6edf2;--mut:#9aa9b5;--ln:#33404a;--trk:#3a4853;--sel:#fff;--btn:#2a353e;--acc:#7fb8e3}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:16px}
+h1{font-size:24px;margin:0 0 2px;text-align:center}h3{font-size:18px;font-weight:700;margin:0 0 8px}
+.sub{color:var(--mut);margin:0 0 12px;text-align:center}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:12px;margin-bottom:12px}
+.bar2{justify-content:space-between;margin-bottom:6px}.bar2 span:last-child{margin-left:auto}
+.bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:12px;font-size:13px;color:var(--mut)}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:5px;border:2px solid}
+button{font:inherit;background:var(--btn);color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:5px 11px;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+svg{width:100%;height:auto;display:block}
+.sh{stroke-width:2;transition:stroke .25s}.pr{fill:#b8dcf7;stroke:#4f93c9}.pe{fill:#f7ebcb;stroke:#c2a25c}
+.gh .sh{fill:transparent;stroke-dasharray:5 4}.gh .pr{stroke:#4f93c9}.gh .pe{stroke:#c2a25c}
+.lb{font-size:12px;font-weight:700;fill:#24303a;text-anchor:middle;pointer-events:none}
+.gh .lb{fill:var(--mut)}
+.win .sh{stroke:var(--win);stroke-width:3.5}
+.sel .sh{stroke:var(--sel);stroke-width:4}
+.glow .sh{filter:drop-shadow(0 0 5px var(--glow)) drop-shadow(0 0 12px var(--glow));animation:glow 1.3s ease-in-out infinite alternate}
+@keyframes glow{from{filter:drop-shadow(0 0 3px var(--glow)) drop-shadow(0 0 7px var(--glow))}to{filter:drop-shadow(0 0 8px var(--glow)) drop-shadow(0 0 20px var(--glow)) drop-shadow(0 0 30px var(--glow))}}
+@media (prefers-reduced-motion:reduce){.glow .sh{animation:none}}
+.bd{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s;cursor:pointer}.gh{transition:opacity .4s;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.bd,.gh{transition:none}}
+.ctl{display:flex;gap:8px;margin-bottom:8px}
+.ctl button{flex:1;text-align:center;padding:9px 6px}
+.ctl button.w{flex:1.6}
+@media(max-width:720px){.ctl{flex-wrap:wrap}.ctl button,.ctl button.w{flex:1 1 45%}}
+.snap{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--mut);margin-top:6px;cursor:pointer}
+.sl{position:relative;height:34px}.in{position:absolute;left:10px;right:10px;top:0;bottom:0}
+.trk{position:absolute;left:0;right:0;top:9px;height:16px;background:var(--trk);border-radius:4px}
+.band{position:absolute;top:9px;height:16px;background:var(--win);opacity:.45;border-radius:3px}
+.et{position:absolute;top:9px;width:2px;height:16px;margin-left:-1px;border-radius:1px;pointer-events:none}.et.p{background:#4f93c9}.et.e{background:#c2a25c}
+.mk{position:absolute;top:9px;width:3px;height:16px;background:var(--win);margin-left:-1px}
+input[type=range]{position:absolute;inset:0;width:100%;margin:0;background:transparent;-webkit-appearance:none;appearance:none}
+input[type=range]::-webkit-slider-runnable-track{background:transparent;height:34px}
+input[type=range]::-moz-range-track{background:transparent}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:7px;border-radius:50%;background:var(--acc);border:3px solid var(--card);box-shadow:0 0 0 1px var(--acc)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--acc);border:3px solid var(--card)}
+.tk{position:relative;height:20px;margin:0 10px;font-size:11px;color:var(--mut)}
+.tk span{position:absolute;transform:translateX(-50%)}.tk .y{color:var(--acc);font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.grid .card{margin:0}p{margin:4px 0}.mut{color:var(--mut)}.kv{display:grid;grid-template-columns:120px 1fr;column-gap:14px}
+#split{display:block}
+@media(min-width:1400px){
+main{max-width:1900px;padding-left:28px;padding-right:28px}
+h1{max-width:968px;margin-left:0;margin-right:0}
+#colHeader{max-width:968px}
+#split{display:flex;align-items:flex-start}
+#colL{flex:0 0 968px;width:968px}
+#colR{flex:1 1 auto;min-width:300px;padding-left:22px;margin-left:22px;border-left:1px solid var(--ln);display:flex;flex-direction:column}
+#colR #info{order:2}
+#colR #orderCard{order:1}
+}
+ul{margin:4px 0;padding-left:18px}li{margin:2px 0}
+</style></head><body><main>
+<h1>Tooth Eruption by P'Map</h1>
+<div id="colHeader">
+<div class="bar bar2"><span>Labels: <button id="l1" class="on">A–E / 1–8</button> <button id="l0">FDI</button></span>
+<span>Source: <button id="m0">Easy to memorize</button> <button id="m1" class="on">ADA</button> <button id="m2">AAPD</button></span></div>
+<p class="mut" id="mdesc" style="font-size:13px;margin:-4px 0 12px"></p>
+<div class="bar">
+<span><i class="sw" style="background:#b8dcf7;border-color:#4f93c9"></i>Primary</span>
+<span><i class="sw" style="background:#f7ebcb;border-color:#c2a25c"></i>Permanent</span>
+<span><i class="sw" style="background:none;border-color:var(--win)"></i>Within eruption window</span>
+</div>
+</div>
+<div id="split"><div id="colL">
+<div class="card"><svg id="sv" viewBox="0 0 960 380" role="img" aria-label="Upper and lower tooth rows"></svg></div>
+<div class="card">
+<div class="ctl"><button id="fs">&lt;&lt; Birth</button><button id="pv" class="w">&lt; Previous eruption</button><button id="nx" class="w">Next eruption &gt;</button><button id="ls">Last eruption &gt;&gt;</button></div>
+<div class="sl"><div class="in"><div class="trk"></div><div id="tkc"></div><div class="band" id="bd" hidden></div><div class="mk" id="mk" hidden></div></div><input id="rg" type="range" min="0" max="1000" step="1" value="0" aria-label="Age"></div>
+<div class="tk" id="tk"></div>
+<label class="snap"><input type="checkbox" id="sn" checked> Snap timeline to nearest eruption</label></div>
+</div>
+<div id="colR">
+<div class="card" id="info"><h3>Tooth details</h3><p class="mut">Drag the timeline or tap a tooth to see its eruption ages.</p></div>
+<div class="card" id="orderCard"><h3>Order of teeth eruption</h3>
+<p><b>Primary (20 teeth)</b></p><ul><li><b>A → B → D → C → E</b></li></ul>
+<p style="margin-top:10px"><b>Permanent (32 teeth)</b></p><ul><li>Maxillary:<br><b>6 → 1 → 2 → 4 → 5 → 3 → 7 → 8</b></li><li>Mandibular:<br><b>6 → 1 → 2 → 3 → 4 → 5 → 7 → 8</b></li></ul></div>
+</div></div>
+<script>
+const NS='http://www.w3.org/2000/svg',$=i=>document.getElementById(i);
+const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
+const DIM={ci:[44,54],li:[34,48],c:[40,62],pm:[38,42],m:[52,44]};
+const PRI=[['Central incisor','ci'],['Lateral incisor','li'],['Canine','c'],['1st molar','m'],['2nd molar','m']];
+const PQ=[[8,6],[12,10],[20,18],[16,14],[24,22]],PS=[[2,1],[4,3],[8,7],[6,5],[10,9]];
+const PR=[[[8,12],[6,10]],[[9,13],[10,16]],[[16,22],[17,23]],[[13,19],[14,18]],[[25,33],[23,31]]];
+const PA=[[[6,10],[5,8]],[[8,12],[7,10]],[[16,20],[16,20]],[[11,18],[11,18]],[[20,30],[20,30]]];
+const PER=[['Central incisor','ci'],['Lateral incisor','li'],['Canine','c'],['1st premolar','pm'],['2nd premolar','pm'],['1st molar','m'],['2nd molar','m'],['3rd molar','m']];
+const EQ=[[7,6],[8,7],[11,9],[10,10],[11,11],[6,6],[12,12],[18,18]],EO=[[3,2],[5,4],[11,6],[7,8],[9,10],[1,1],[12,12],[13,13]];
+const ER=[[[7,8],[6,7]],[[8,9],[7,8]],[[11,12],[9,10]],[[10,11],[10,12]],[[10,12],[11,12]],[[6,7],[6,7]],[[12,13],[11,13]],[[17,21],[17,21]]];
+const EA=[[[7,8],[6,7]],[[8,9],[7,8]],[[11,12],[9,11]],[[10,11],[10,12]],[[10,12],[11,13]],[[5.5,7],[5.5,7]],[[12,14],[12,14]],[[17,30],[17,30]]];
+const LET='ABCDEFGHIJKLMNOPQRST',T=[];
+/* Each tooth stores three animation ages (months): ez = rule of thumb, ad = start of ADA range, aa = start of AAPD range */
+for(let q=1;q<=4;q++){const up=q<3,side=(q==1||q==4)?-1:1,k=up?0:1;
+ PER.forEach((d,i)=>{const n=i+1;T.push({pri:0,q,n,i,up,side,fdi:q*10+n,name:d[0],sh:d[1],ql:EQ[i][k]+' y',ez:(EQ[i][k]+EO[i][k]*.02)*12,ad:ER[i][k][0]*12,aa:EA[i][k][0]*12,lo:ER[i][k][0]*12,hi:ER[i][k][1]*12,rg:ER[i][k],ag:EA[i][k],ord:EO[i][k],pal:n,s:1})});
+ PRI.forEach((d,i)=>{const n=i+1;T.push({pri:1,q,n,i,up,side,fdi:(q+4)*10+n,name:d[0],sh:d[1],ql:PQ[i][k]+' mo',ez:PQ[i][k],ad:PR[i][k][0],aa:PA[i][k][0],lo:PR[i][k][0],hi:PR[i][k][1],rg:PR[i][k],ag:PA[i][k],ord:PS[i][k],pal:LET[i],s:.78})});}
+T.forEach(t=>{if(t.pri)t.succ=T.find(x=>!x.pri&&x.q==t.q&&x.n==t.n)});
+const svg=$('sv'),UG=58,LG=322;
+mk('defs',{},svg).innerHTML='<clipPath id="cu"><rect x="0" y="'+UG+'" width="960" height="200"/></clipPath><clipPath id="cl"><rect x="0" y="'+(LG-200)+'" width="960" height="200"/></clipPath>';
+const gG=mk('g',{},svg),gU=mk('g',{'clip-path':'url(#cu)'},svg),gL=mk('g',{'clip-path':'url(#cl)'},svg);
+mk('line',{x1:480,x2:480,y1:UG,y2:LG,stroke:'var(--ln)','stroke-dasharray':'4 5'},svg);
+[[24,30,'Upper gum · maxillary'],[24,LG,'Lower gum · mandibular']].forEach(g=>{mk('rect',{x:24,y:g[1],width:912,height:28,rx:6,fill:'#c0453f'},svg);
+ const x=mk('text',{x:36,y:g[1]+19,fill:'#fff','font-size':13,'font-weight':700},svg);x.textContent=g[2]});
+[30,LG].forEach(y=>{const x=mk('text',{x:480,y:y+19,fill:'#fff','font-size':11,'text-anchor':'middle',opacity:.9},svg);x.textContent='Right ◀ midline ▶ Left'});
+const AG=mk('text',{x:480,y:180,'text-anchor':'middle','font-size':40,'font-weight':700,fill:'var(--tx)'},svg),ST=mk('text',{x:480,y:212,'text-anchor':'middle','font-size':15,fill:'var(--mut)'},svg);
+function shape(t,p){const [w,h]=DIM[t.sh],d=t.up?1:-1,c='sh '+(t.pri?'pr':'pe');
+ return t.sh=='c'?mk('polygon',{points:`${-w/2},0 ${w/2},0 0,${d*h}`,class:c},p):mk('rect',{x:-w/2,y:d>0?0:-h,width:w,height:h,rx:3,class:c},p)}
+T.forEach(t=>{const cx=480+t.side*(t.n-.5)*56,gy=t.up?UG:LG,d=t.up?1:-1;t.h=DIM[t.sh][1];
+ const lab=(p)=>{const x=mk('text',{y:d>0?17:-7,class:'lb','font-size':t.pri?14:12},p);return x};
+ t.gh=mk('g',{transform:`translate(${cx},${gy}) scale(${t.s})`,class:'gh'},gG);shape(t,t.gh);t.ghl=lab(t.gh);
+ const o=mk('g',{transform:`translate(${cx},${gy})`},t.up?gU:gL);t.body=mk('g',{class:'bd'},o);shape(t,t.body);t.bl=lab(t.body);
+ [t.gh,t.body].forEach(g=>g.addEventListener('click',()=>pick(t)))});
+let mode=1,sel=null,hold=null,M=0,first=0,last=0,EV=[];
+const MODES=['ez','ad','aa'],MD=['Easy to memorize: rule-of-thumb ages that snap into even months (lower before upper).','ADA: each tooth erupts at the first age of the ADA range.','AAPD: each tooth erupts at the first age of the AAPD range.'];
+const lab=t=>t.pal;
+function relabel(){T.forEach(t=>{t.ghl.textContent=t.bl.textContent=mode?t.pal:t.fdi})}
+const p2m=p=>p<=360?p/10:36+(p-360)/640*228,m2p=m=>m<=36?m*10:360+(m-36)/228*640;
+const mw=n=>n+(n<=1?' month':' months');
+const ym=n=>{const y=Math.floor(n/12),r=n%12;return y?y+' y'+(r?' '+r+' mo':''):mw(r)};
+const cv=n=>n<12?mw(n):n+' mo ('+ym(n)+')';
+const fmt=m=>{const n=Math.round(m);return n<12?mw(n):n<36?cv(n):ym(n)};
+const rng=(a,u)=>(a[0]==a[1]?a[0]:a[0]+'–'+a[1])+(u=='y'?' y':(a[1]<12?' months':' mo')+(a[1]>=12?' ('+ym(a[0])+(a[0]==a[1]?'':' – '+ym(a[1]))+')':''));
+function render(m){M=m;let np=0,ne=0;
+ T.forEach(t=>{const st=t.pri?(m<t.e?'pre':m<t.shed?'in':'shed'):(m<t.e?'pre':'in'),d=t.up?1:-1,s=t.s;
+  t.body.style.transform=st=='pre'?`translateY(${-d*(t.h*s+8)}px) scale(${s})`:st=='in'?`scale(${s})`:`translateY(${d*50}px) rotate(${d*14}deg) scale(${s})`;
+  t.body.style.opacity=st=='shed'?0:1;t.body.style.pointerEvents=st=='in'?'auto':'none';
+  const gv=m<t.e&&(t.pri||t.n>5);t.gh.style.opacity=gv?.75:0;t.gh.style.pointerEvents=gv?'auto':'none';
+  const iw=m>=t.lo&&m<=t.hi&&(gv||st=='in');t.gh.classList.toggle('win',iw);t.body.classList.toggle('win',iw);
+  if(st=='in')t.pri?np++:ne++});
+ AG.textContent=fmt(m);
+ ST.textContent=(m<6&&!np?'Before the first tooth':m<first?'Primary dentition':m<last?'Mixed dentition':'Permanent dentition')+' · '+np+' primary + '+ne+' permanent';
+ $('rg').value=Math.round(m2p(m));
+ if(hold)choose(hold);else{const lt=EV.filter(e=>e<=m+1e-6).pop();
+  lt!=null?choose(evt(lt)):clearSel()}
+}
+const evt=e=>T.filter(x=>x.e==e&&x.side<0),INFO0=$('info').innerHTML,same=(a,b)=>a.pri==b.pri&&a.n==b.n&&a.up==b.up;
+function clearSel(){sel=null;T.forEach(x=>{['sel','glow'].forEach(c=>{x.gh.classList.remove(c);x.body.classList.remove(c)})});
+ $('info').innerHTML=INFO0;$('bd').hidden=$('mk').hidden=true}
+function choose(reps){sel=reps;const gl=Math.abs(M-reps[0].e)<1e-6;
+ T.forEach(x=>{const c=reps.some(r=>same(r,x));x.gh.classList.toggle('sel',c);x.body.classList.toggle('sel',c);x.gh.classList.toggle('glow',c&&gl);x.body.classList.toggle('glow',c&&gl)});
+ const G=[];reps.forEach(r=>{const g=G.find(g=>g[0].pri==r.pri&&g[0].n==r.n);g?g.push(r):G.push([r])});
+ G.sort((a,b)=>a[0].n-b[0].n);
+ $('info').innerHTML=G.map((g,i)=>{g.sort((a,b)=>b.up-a.up);const t=g[0],u=t.pri?'mo':'y',v=f=>{const a=g.map(f);return a.length>1&&a[0]!=a[1]?g.map((r,j)=>(r.up?'Upper ':'Lower ')+a[j]).join(' · '):a[0]};
+ return `<div style="${i?'border-top:1px solid var(--ln);margin-top:10px;padding-top:8px':''}"><h3>${g.map(r=>r.up?'Maxillary':'Mandibular').join(' &amp; ')} ${t.pri?'primary':'permanent'} ${t.name.toLowerCase()}s</h3>
+ <p class="kv"><b>Rule of thumb</b><span>${v(r=>r.pri?cv(r.ez):r.ql)}</span></p><p class="kv"><b>ADA range</b><span>${v(r=>rng(r.rg,u))}</span></p><p class="kv"><b>AAPD range</b><span>${v(r=>rng(r.ag,u))}</span></p></div>`}).join('');
+ const lo=Math.min(...reps.map(r=>r.lo)),hi=Math.max(...reps.map(r=>r.hi)),bd=$('bd'),mk2=$('mk');
+ bd.hidden=mk2.hidden=false;bd.style.left=m2p(lo)/10+'%';bd.style.width=(m2p(hi)-m2p(lo))/10+'%';mk2.style.left=m2p(reps[0].e)/10+'%'}
+function pick(t){if(sel&&sel.some(r=>same(r,t)))return;hold=evt(t.e);render(t.e);hold=null}
+function setMode(i){const k=MODES[i];
+ T.forEach(t=>t.e=t[k]);T.forEach(t=>{if(t.pri)t.shed=t.succ.e});
+ first=Math.min(...T.filter(t=>!t.pri).map(t=>t.e));last=Math.max(...T.filter(t=>t.pri).map(t=>t.shed));
+ EV=[...new Set(T.map(t=>t.e))].sort((a,b)=>a-b);
+ $('tkc').innerHTML='';EV.forEach(e=>{const d=document.createElement('div');d.className='et '+(e<36?'p':'e');d.style.left=m2p(e)/10+'%';$('tkc').appendChild(d)});
+ MODES.forEach((_,j)=>$('m'+j).classList.toggle('on',j==i));$('mdesc').textContent=MD[i];
+ hold=null;render(M)}
+const snapTo=m=>[0,...EV,p2m(1000)].reduce((b,e)=>Math.abs(m2p(e)-m2p(m))<Math.abs(m2p(b)-m2p(m))?e:b);
+$('rg').oninput=e=>{const m=p2m(+e.target.value);render($('sn').checked?snapTo(m):m)};
+$('sn').onchange=e=>{if(e.target.checked)render(snapTo(M))};
+$('nx').onclick=()=>{const n=EV.find(e=>e>M+1e-6);if(n!=null)render(n)};
+$('fs').onclick=()=>render(0);
+$('ls').onclick=()=>render(EV[EV.length-1]);
+$('pv').onclick=()=>{const p=EV.filter(e=>e<M-1e-6).pop();p!=null?render(p):render(0)};
+[0,6,12,18,24,30].forEach(m=>{const s=document.createElement('span');s.textContent=m+(m?'m':'');s.style.left=m2p(m)/10+'%';$('tk').appendChild(s)});
+[3,6,9,12,15,18,21].forEach(y=>{const s=document.createElement('span');s.className='y';s.textContent=y+'y';s.style.left=m2p(y*12)/10+'%';$('tk').appendChild(s)});
+$('l0').onclick=()=>{mode=0;$('l0').classList.add('on');$('l1').classList.remove('on');relabel()};
+$('l1').onclick=()=>{mode=1;$('l1').classList.add('on');$('l0').classList.remove('on');relabel()};
+MODES.forEach((_,i)=>$('m'+i).onclick=()=>setMode(i));
+relabel();setMode(1);
+</script></main></body></html>
