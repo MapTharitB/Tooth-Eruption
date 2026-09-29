@@ -28,10 +28,11 @@ svg{width:100%;height:auto;display:block}
 /* The glow is a separate blurred copy of the tooth drawn behind it. Safari does not render CSS drop-shadow filters on SVG shapes, but it does render this SVG blur filter. Blue for primary teeth, amber for permanent. */
 .halo{display:none;pointer-events:none;stroke-width:16;stroke-linejoin:round}
 .hp{fill:var(--gb);stroke:var(--gb)}.he{fill:var(--glow);stroke:var(--glow)}
-.glow .halo{display:inline;animation:glow 1.3s ease-in-out infinite alternate}
+.glow .halo,.gout .halo{display:inline}.glow .halo{animation:glow 1.3s ease-in-out infinite alternate}
+.gout .halo{animation:gfade .45s ease-out forwards}@keyframes gfade{from{opacity:var(--go,.5)}to{opacity:0}}
 @keyframes glow{from{opacity:.42}to{opacity:.65}}
 @media (prefers-reduced-motion:reduce){.glow .halo{animation:none;opacity:.55}}
-.bd{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s;cursor:pointer}.hg,.tp{transition:transform .7s cubic-bezier(.2,.8,.2,1)}.tp{opacity:0;pointer-events:none}.tp.glow{opacity:1}.gh{transition:opacity .4s;cursor:pointer}
+.bd{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s;cursor:pointer}.hg,.tp{transition:transform .7s cubic-bezier(.2,.8,.2,1)}.tp{opacity:0;pointer-events:none}.tp.glow,.tp.gout{opacity:1}.gh{transition:opacity .4s;cursor:pointer}
 .ctl{display:flex;gap:8px;margin-bottom:8px}
 .ctl button{flex:1;text-align:center;padding:9px 6px}
 .ctl button.w{flex:1.6}
@@ -116,8 +117,9 @@ function shape(t,p,x){const [w,h]=DIM[t.sh],d=t.up?1:-1,a={class:x||'sh '+(t.pri
 T.forEach(t=>{const cx=480+t.side*(t.n-.5)*56,gy=t.up?UG:LG,d=t.up?1:-1;t.h=DIM[t.sh][1];
  const lab=(p)=>{const x=mk('text',{y:d>0?17:-7,class:'lb','font-size':t.pri?14:12},p);return x};
  t.gh=mk('g',{transform:`translate(${cx},${gy}) scale(${t.s})`,class:'gh'},gG);shape(t,t.gh);t.ghl=lab(t.gh);
- const ho=mk('g',{transform:`translate(${cx},${gy})`},t.up?hU:hL);t.hg=mk('g',{class:'hg'},ho);shape(t,t.hg,'halo '+(t.pri?'hp':'he'));
+ const ho=mk('g',{transform:`translate(${cx},${gy})`},t.up?hU:hL);t.hg=mk('g',{class:'hg'},ho);t.halo=shape(t,t.hg,'halo '+(t.pri?'hp':'he'));
  const tc=mk('g',{transform:`translate(${cx},${gy})`},t.up?tU:tL);t.tp=mk('g',{class:'tp'},tc);shape(t,t.tp);t.tl=lab(t.tp);
+ t.hg.addEventListener('animationend',e=>{if(e.animationName=='gfade')[t.hg,t.tp].forEach(g=>g.classList.remove('gout'))});
  const o=mk('g',{transform:`translate(${cx},${gy})`},t.up?gU:gL);t.body=mk('g',{class:'bd'},o);shape(t,t.body);t.bl=lab(t.body);
  [t.gh,t.body].forEach(g=>g.addEventListener('click',()=>pick(t)))});
 let mode=1,sel=null,hold=null,M=0,first=0,last=0,EV=[];
@@ -143,13 +145,19 @@ function render(m){M=m;let np=0,ne=0;
  ST.textContent=(m<6&&!np?'Before the first tooth':m<first?'Primary dentition':m<last?'Mixed dentition':'Permanent dentition')+' · '+np+' primary + '+ne+' permanent';
  $('rg').value=Math.round(m2p(m));
  if(hold)choose(hold);else{const lt=EV.filter(e=>e<=m+1e-6).pop();
-  lt!=null?choose(evt(lt)):clearSel()}
+  lt!=null&&!(lt==EV[EV.length-1]&&m>lt+1e-6)?choose(evt(lt)):clearSel()}
 }
 const evt=e=>T.filter(x=>x.e==e&&x.side<0),INFO0=$('info').innerHTML,same=(a,b)=>a.pri==b.pri&&a.n==b.n&&a.up==b.up;
-function clearSel(){sel=null;T.forEach(x=>{['sel','glow'].forEach(c=>{x.gh.classList.remove(c);x.body.classList.remove(c);x.hg.classList.remove(c);x.tp.classList.remove(c)})});
+/* Glow turns on instantly and fades out over 0.45s from whatever brightness the pulse had reached (class gout) */
+function setGlow(x,on){const h=x.hg;
+ if(on){[h,x.tp].forEach(g=>{g.classList.remove('gout');g.classList.add('glow')});return}
+ if(!h.classList.contains('glow'))return;
+ h.style.setProperty('--go',getComputedStyle(x.halo).opacity||.5);
+ [h,x.tp].forEach(g=>{g.classList.remove('glow');g.classList.add('gout')})}
+function clearSel(){sel=null;T.forEach(x=>{['gh','body','tp'].forEach(k=>x[k].classList.remove('sel'));setGlow(x,false)});
  $('info').innerHTML=INFO0;$('bd').hidden=$('mk').hidden=true}
 function choose(reps){sel=reps;const gl=Math.abs(M-reps[0].e)<1e-6;
- T.forEach(x=>{const c=reps.some(r=>same(r,x));x.gh.classList.toggle('sel',c);x.body.classList.toggle('sel',c);x.tp.classList.toggle('sel',c);x.gh.classList.toggle('glow',c&&gl);x.body.classList.toggle('glow',c&&gl);x.hg.classList.toggle('glow',c&&gl);x.tp.classList.toggle('glow',c&&gl)});
+ T.forEach(x=>{const c=reps.some(r=>same(r,x));x.gh.classList.toggle('sel',c);x.body.classList.toggle('sel',c);x.tp.classList.toggle('sel',c);setGlow(x,c&&gl)});
  const G=[];reps.forEach(r=>{const g=G.find(g=>g[0].pri==r.pri&&g[0].n==r.n);g?g.push(r):G.push([r])});
  G.sort((a,b)=>a[0].n-b[0].n);
  $('info').innerHTML=G.map((g,i)=>{g.sort((a,b)=>b.up-a.up);const t=g[0],u=t.pri?'mo':'y',v=f=>{const a=g.map(f);return a.length>1&&a[0]!=a[1]?g.map((r,j)=>(r.up?'Upper ':'Lower ')+a[j]).join(' · '):a[0]};
@@ -175,9 +183,11 @@ function setMode(i){const k=MODES[i],keep=sel&&Math.abs(M-sel[0].e)<1e-6?sel[0]:
 const snapTo=m=>[0,...EV,p2m(1000)].reduce((b,e)=>Math.abs(m2p(e)-m2p(m))<Math.abs(m2p(b)-m2p(m))?e:b);
 $('rg').oninput=e=>{const m=p2m(+e.target.value);render($('sn').checked?snapTo(m):m)};
 $('sn').onchange=e=>{if(e.target.checked)render(snapTo(M))};
-$('nx').onclick=()=>{const n=EV.find(e=>e>M+1e-6);if(n!=null)render(n)};
+/* Next and Last continue to the far right end of the timeline once there is no eruption left */
+const END=p2m(1000);
+$('nx').onclick=()=>{const n=EV.find(e=>e>M+1e-6);if(n!=null)render(n);else if(M<END-1e-6)render(END)};
 $('fs').onclick=()=>render(0);
-$('ls').onclick=()=>render(EV[EV.length-1]);
+$('ls').onclick=()=>render(END);
 function goPrev(){const p=EV.filter(e=>e<M-1e-6).pop();render(p!=null?p:0)}
 $('pv').onclick=goPrev;
 [0,6,12,18,24,30].forEach(m=>{const s=document.createElement('span');s.textContent=m+(m?'m':'');s.style.left=m2p(m)/10+'%';$('tk').appendChild(s)});
