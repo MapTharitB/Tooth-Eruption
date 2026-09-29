@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><title>Tooth Eruption Timeline</title>
+<html lang="en"><head><meta charset="utf-8"><title>Tooth Eruption by P'Map</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
 :root{--bg:#f3f6f8;--card:#fff;--tx:#1f2a33;--mut:#5d6b76;--ln:#d5dde3;--trk:#cfd8de;--win:#e08a00;--sel:#1f2a33;--btn:#e8eef2;--acc:#2f6f9f;--glow:#ffb400;--gb:#2f9bff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-:root:not([data-theme="light"]){}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a1f;--card:#1e262d;--tx:#e6edf2;--mut:#9aa9b5;--ln:#33404a;--trk:#3a4853;--sel:#fff;--btn:#2a353e;--acc:#7fb8e3}}
 :root[data-theme="dark"]{--bg:#141a1f;--card:#1e262d;--tx:#e6edf2;--mut:#9aa9b5;--ln:#33404a;--trk:#3a4853;--sel:#fff;--btn:#2a353e;--acc:#7fb8e3}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
 main{max-width:1000px;margin:0 auto;padding:16px}
 h1{font-size:24px;margin:0 0 2px;text-align:center}h3{font-size:18px;font-weight:700;margin:0 0 8px}
-.sub{color:var(--mut);margin:0 0 12px;text-align:center}
 .card{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:12px;margin-bottom:12px}
 .bar2{justify-content:space-between;margin-bottom:6px}.bar2 span:last-child{margin-left:auto}
 .bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:12px;font-size:13px;color:var(--mut)}
@@ -25,14 +23,14 @@ svg{width:100%;height:auto;display:block}
 .gh .lb{fill:var(--mut)}
 .win .sh{stroke:var(--win);stroke-width:3.5}
 .sel .sh{stroke:var(--sel);stroke-width:4}
-/* The glow is a separate blurred copy of the tooth drawn behind it. Safari does not render CSS drop-shadow filters on SVG shapes, but it does render this SVG blur filter. Blue for primary teeth, amber for permanent. */
+/* The glow is a separate blurred copy of the tooth in a layer above all teeth, with a hole cut out where its own tooth is (clip-path). It is always in front of neighbouring teeth but never covers its own. Safari does not render CSS drop-shadow filters on SVG shapes, but it does render this SVG blur filter. Blue for primary teeth, amber for permanent. */
 .halo{display:none;pointer-events:none;stroke-width:16;stroke-linejoin:round}
 .hp{fill:var(--gb);stroke:var(--gb)}.he{fill:var(--glow);stroke:var(--glow)}
 .glow .halo,.gout .halo{display:inline}.glow .halo{animation:glow 1.3s ease-in-out infinite alternate}
 .gout .halo{animation:gfade .45s ease-out forwards}@keyframes gfade{from{opacity:var(--go,.5)}to{opacity:0}}
 @keyframes glow{from{opacity:.42}to{opacity:.65}}
 @media (prefers-reduced-motion:reduce){.glow .halo{animation:none;opacity:.55}}
-.bd{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s;cursor:pointer}.hg,.tp{transition:transform .7s cubic-bezier(.2,.8,.2,1)}.tp{opacity:0;pointer-events:none}.tp.glow,.tp.gout{opacity:1}.gh{transition:opacity .4s;cursor:pointer}
+.bd{transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s;cursor:pointer}.hg{transition:transform .7s cubic-bezier(.2,.8,.2,1)}.gh{transition:opacity .4s;cursor:pointer}
 .ctl{display:flex;gap:8px;margin-bottom:8px}
 .ctl button{flex:1;text-align:center;padding:9px 6px}
 .ctl button.w{flex:1.6}
@@ -53,14 +51,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--acc);border:3px solid var(--card)}
 .tk{position:relative;height:20px;margin:0 10px;font-size:11px;color:var(--mut)}
 .tk span{position:absolute;transform:translateX(-50%)}.tk .y{color:var(--acc);font-weight:700}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
-@media(max-width:720px){.grid{grid-template-columns:1fr}}
-.grid .card{margin:0}p{margin:4px 0}.mut{color:var(--mut)}.kv{display:grid;grid-template-columns:120px 1fr;column-gap:14px}
-#split{display:block}
+p{margin:4px 0}.mut{color:var(--mut)}.kv{display:grid;grid-template-columns:120px 1fr;column-gap:14px}
 ul{margin:4px 0;padding-left:18px}li{margin:2px 0}
 </style></head><body><main>
 <h1>Tooth Eruption by P'Map</h1>
-<div id="colHeader">
 <div class="bar bar2"><span>Labels: <button id="l1" class="on">A–E / 1–8</button> <button id="l0">FDI</button></span>
 <span>Source: <button id="m0" class="on">ADA</button> <button id="m1">AAPD</button></span></div>
 <p class="mut" id="mdesc" style="font-size:13px;margin:-4px 0 12px"></p>
@@ -69,23 +63,19 @@ ul{margin:4px 0;padding-left:18px}li{margin:2px 0}
 <span><i class="sw" style="background:#f7ebcb;border-color:#c2a25c"></i>Permanent</span>
 <span><i class="sw" style="background:none;border-color:var(--win)"></i>Within eruption window</span>
 </div>
-</div>
-<div id="split"><div id="colL">
 <div class="card"><svg id="sv" viewBox="0 0 960 380" role="img" aria-label="Upper and lower tooth rows"></svg></div>
 <div class="card">
 <div class="ctl"><button id="fs">&lt;&lt; Birth</button><button id="pv" class="w">&lt; Previous eruption</button><button id="nx" class="w">Next eruption &gt;</button><button id="ls">Last eruption &gt;&gt;</button></div>
 <div class="sl"><div class="in"><div class="trk"></div><div id="tkc"></div><div class="band" id="bd" hidden></div><div class="mk" id="mk" hidden></div></div><input id="rg" type="range" min="0" max="1000" step="1" value="0" aria-label="Age"></div>
 <div class="tk" id="tk"></div>
 <label class="snap"><input type="checkbox" id="sn" checked> Snap timeline to nearest eruption</label></div>
-</div>
-<div id="colR">
 <div class="card" id="info"><h3>Tooth details</h3><p class="mut">Drag the timeline or tap a tooth to see its eruption ages.</p></div>
-<div class="card" id="orderCard"><h3>Order of teeth eruption</h3>
+<div class="card"><h3>Order of teeth eruption</h3>
 <p><b>Primary (20 teeth)</b></p><ul><li><b>A → B → D → C → E</b></li></ul>
 <p style="margin-top:10px"><b>Permanent (32 teeth)</b></p><ul><li>Maxillary:<br><b>6 → 1 → 2 → 4 → 5 → 3 → 7 → 8</b></li><li>Mandibular:<br><b>6 → 1 → 2 → 3 → 4 → 5 → 7 → 8</b></li></ul></div>
-</div></div>
 <script>
 const NS='http://www.w3.org/2000/svg',$=i=>document.getElementById(i);
+const EPS=1e-6;
 const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
 const DIM={ci:[44,54],li:[34,48],c:[40,62],pm:[38,42],m:[52,44]};
 const PRI=[['Central incisor','ci'],['Lateral incisor','li'],['Canine','c'],['1st molar','m'],['2nd molar','m']];
@@ -95,119 +85,128 @@ const PER=[['Central incisor','ci'],['Lateral incisor','li'],['Canine','c'],['1s
 const ER=[[[7,8],[6,7]],[[8,9],[7,8]],[[11,12],[9,10]],[[10,11],[10,12]],[[10,12],[11,12]],[[6,7],[6,7]],[[12,13],[11,13]],[[17,21],[17,21]]];
 const EA=[[[7,8],[6,7]],[[8,9],[7,8]],[[11,12],[9,11]],[[10,11],[10,12]],[[10,12],[11,13]],[[5.5,7],[5.5,7]],[[12,14],[12,14]],[[17,30],[17,30]]];
 const LET='ABCDEFGHIJKLMNOPQRST',T=[];
-/* Each tooth stores two animation ages (months): ad = start of ADA range, aa = start of AAPD range */
+/* rg = ADA range, ag = AAPD range (primary in months, permanent in years). Ages in months (e, lo, hi) are set by setMode for the chosen source. */
 for(let q=1;q<=4;q++){const up=q<3,side=(q==1||q==4)?-1:1,k=up?0:1;
- PER.forEach((d,i)=>{const n=i+1;T.push({pri:0,q,n,i,up,side,fdi:q*10+n,name:d[0],sh:d[1],ad:ER[i][k][0]*12,aa:EA[i][k][0]*12,lo:ER[i][k][0]*12,hi:ER[i][k][1]*12,rg:ER[i][k],ag:EA[i][k],pal:n,s:1})});
- PRI.forEach((d,i)=>{const n=i+1;T.push({pri:1,q,n,i,up,side,fdi:(q+4)*10+n,name:d[0],sh:d[1],ad:PR[i][k][0],aa:PA[i][k][0],lo:PR[i][k][0],hi:PR[i][k][1],rg:PR[i][k],ag:PA[i][k],pal:LET[i],s:.78})});}
-/* succ = the permanent tooth that replaces a primary tooth; pred is the reverse link. Permanent molars 6-8 have no pred. */
-T.forEach(t=>{if(t.pri){t.succ=T.find(x=>!x.pri&&x.q==t.q&&x.n==t.n);t.succ.pred=t}});
+ PER.forEach((d,i)=>{const n=i+1;T.push({pri:0,q,n,up,side,fdi:q*10+n,name:d[0],sh:d[1],rg:ER[i][k],ag:EA[i][k],pal:n,s:1})});
+ PRI.forEach((d,i)=>{const n=i+1;T.push({pri:1,q,n,up,side,fdi:(q+4)*10+n,name:d[0],sh:d[1],rg:PR[i][k],ag:PA[i][k],pal:LET[i],s:.78})});}
+/* succ = the permanent tooth that replaces a primary tooth. */
+T.forEach(t=>{if(t.pri)t.succ=T.find(x=>!x.pri&&x.q==t.q&&x.n==t.n)});
 const svg=$('sv'),UG=58,LG=322;
-mk('defs',{},svg).innerHTML='<clipPath id="cu"><rect x="0" y="'+UG+'" width="960" height="200"/></clipPath><clipPath id="cl"><rect x="0" y="'+(LG-200)+'" width="960" height="200"/></clipPath><filter id="hb" x="-200%" y="-200%" width="500%" height="500%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="16"/><feComponentTransfer><feFuncA type="linear" slope="2.4"/></feComponentTransfer></filter>';
+/* Each glow has a hole shaped like its own tooth (a little larger than the outline) so the glow can sit above every tooth without covering its own */
+const holePath=(sh,d)=>{const [w,h]=DIM[sh];return 'M-200,-200H200V200H-200Z'+(sh=='c'?`M${-w/2-4},${-2*d}H${w/2+4}L0,${d*(h+7)}Z`:`M${-w/2-2},${-2*d}H${w/2+2}V${d*(h+2)}H${-w/2-2}Z`)};
+const holes=Object.keys(DIM).flatMap(sh=>[1,-1].map(d=>`<clipPath id="ho-${sh}-${d>0?'u':'l'}"><path clip-rule="evenodd" d="${holePath(sh,d)}"/></clipPath>`)).join('');
+mk('defs',{},svg).innerHTML='<clipPath id="cu"><rect x="0" y="'+UG+'" width="960" height="200"/></clipPath><clipPath id="cl"><rect x="0" y="'+(LG-200)+'" width="960" height="200"/></clipPath><filter id="hb" x="-200%" y="-200%" width="500%" height="500%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="16"/><feComponentTransfer><feFuncA type="linear" slope="2.4"/></feComponentTransfer></filter>'+holes;
 const gG=mk('g',{},svg),gU=mk('g',{'clip-path':'url(#cu)'},svg),gL=mk('g',{'clip-path':'url(#cl)'},svg);
-/* Layer order: all teeth, then glow halos (cover older neighbours), then copies of the glowing teeth (sit above their own halo) */
+/* Layer order: all teeth, then glow halos (above every tooth, each with a hole for its own tooth) */
 const hU=mk('g',{'clip-path':'url(#cu)'},svg),hL=mk('g',{'clip-path':'url(#cl)'},svg);
-const tU=mk('g',{'clip-path':'url(#cu)'},svg),tL=mk('g',{'clip-path':'url(#cl)'},svg);
 mk('line',{x1:480,x2:480,y1:UG,y2:LG,stroke:'var(--ln)','stroke-dasharray':'4 5'},svg);
 [[24,30,'Upper gum · maxillary'],[24,LG,'Lower gum · mandibular']].forEach(g=>{mk('rect',{x:24,y:g[1],width:912,height:28,rx:6,fill:'#c0453f'},svg);
  const x=mk('text',{x:36,y:g[1]+19,fill:'#fff','font-size':13,'font-weight':700},svg);x.textContent=g[2]});
 [30,LG].forEach(y=>{const x=mk('text',{x:480,y:y+19,fill:'#fff','font-size':11,'text-anchor':'middle',opacity:.9},svg);x.textContent='Right ◀ midline ▶ Left'});
 const AG=mk('text',{x:480,y:180,'text-anchor':'middle','font-size':40,'font-weight':700,fill:'var(--tx)'},svg),ST=mk('text',{x:480,y:212,'text-anchor':'middle','font-size':15,fill:'var(--mut)'},svg);
-function shape(t,p,x){const [w,h]=DIM[t.sh],d=t.up?1:-1,a={class:x||'sh '+(t.pri?'pr':'pe')};if(x)a.filter='url(#hb)';
+function shape(t,p,x){const [w,h]=DIM[t.sh],d=t.up?1:-1,a={class:x||'sh '+(t.pri?'pr':'pe')};if(x){a.filter='url(#hb)';a['clip-path']='url(#ho-'+t.sh+'-'+(d>0?'u':'l')+')'}
  return t.sh=='c'?mk('polygon',{points:`${-w/2},0 ${w/2},0 0,${d*h}`,...a},p):mk('rect',{x:-w/2,y:d>0?0:-h,width:w,height:h,rx:3,...a},p)}
 T.forEach(t=>{const cx=480+t.side*(t.n-.5)*56,gy=t.up?UG:LG,d=t.up?1:-1;t.h=DIM[t.sh][1];
  const lab=(p)=>{const x=mk('text',{y:d>0?17:-7,class:'lb','font-size':t.pri?14:12},p);return x};
  t.gh=mk('g',{transform:`translate(${cx},${gy}) scale(${t.s})`,class:'gh'},gG);shape(t,t.gh);t.ghl=lab(t.gh);
  const ho=mk('g',{transform:`translate(${cx},${gy})`},t.up?hU:hL);t.hg=mk('g',{class:'hg'},ho);t.halo=shape(t,t.hg,'halo '+(t.pri?'hp':'he'));
- const tc=mk('g',{transform:`translate(${cx},${gy})`},t.up?tU:tL);t.tp=mk('g',{class:'tp'},tc);shape(t,t.tp);t.tl=lab(t.tp);
- t.hg.addEventListener('animationend',e=>{if(e.animationName=='gfade')[t.hg,t.tp].forEach(g=>g.classList.remove('gout'))});
+ t.hg.addEventListener('animationend',e=>{if(e.animationName=='gfade')t.hg.classList.remove('gout')});
  const o=mk('g',{transform:`translate(${cx},${gy})`},t.up?gU:gL);t.body=mk('g',{class:'bd'},o);shape(t,t.body);t.bl=lab(t.body);
  [t.gh,t.body].forEach(g=>g.addEventListener('click',()=>pick(t)))});
-let mode=1,sel=null,hold=null,M=0,first=0,last=0,EV=[];
-const MODES=['ad','aa'],MD=['ADA: each tooth erupts at the first age of the ADA range.','AAPD: each tooth erupts at the first age of the AAPD range.'];
-const lab=t=>t.pal;
-function relabel(){T.forEach(t=>{t.ghl.textContent=t.bl.textContent=t.tl.textContent=mode?t.pal:t.fdi})}
+let mode=1,sel=null,M=0,first=0,last=0,EV=[];
+const MODES=['rg','ag'],MD=['ADA: each tooth erupts at the first age of the ADA range.','AAPD: each tooth erupts at the first age of the AAPD range.'];
+function relabel(){T.forEach(t=>{t.ghl.textContent=t.bl.textContent=mode?t.pal:t.fdi})}
 const p2m=p=>p<=360?p/10:36+(p-360)/640*228,m2p=m=>m<=36?m*10:360+(m-36)/228*640;
 const mw=n=>n+(n<=1?' month':' months');
 const ym=n=>{const y=Math.floor(n/12),r=n%12;return y?(r?y+' y '+r+' mo':y+(y>1?' years':' year')):mw(r)};
 const cv=n=>n<12?mw(n):n+' mo ('+ym(n)+')';
 const fmt=m=>{const n=Math.round(m);return n<12?mw(n):n<36?cv(n):ym(n)};
 const rng=(a,u)=>(a[0]==a[1]?a[0]:a[0]+'–'+a[1])+(u=='y'?' y':(a[1]<12?' months':' mo')+(a[1]>=12?' ('+ym(a[0])+(a[0]==a[1]?'':' – '+ym(a[1]))+')':''));
+/* Latest eruption at or before m. Nothing is selected before the first eruption or once past the last one. */
+function currentEruption(m){const lt=EV.filter(e=>e<=m+EPS).pop();
+ return lt!=null&&!(lt==EV[EV.length-1]&&m>lt+EPS)?evt(lt):null}
 function render(m){M=m;let np=0,ne=0;
  T.forEach(t=>{const st=t.pri?(m<t.e?'pre':m<t.shed?'in':'shed'):(m<t.e?'pre':'in'),d=t.up?1:-1,s=t.s;
   /* Shed primary teeth tilt outward from the midline, so the two sides of the arch mirror each other */
   const tr=st=='pre'?`translateY(${-d*(t.h*s+8)}px) scale(${s})`:st=='in'?`scale(${s})`:`translateY(${d*50}px) rotate(${-t.side*d*14}deg) scale(${s})`;
-  t.body.style.transform=t.hg.style.transform=t.tp.style.transform=tr;
+  t.body.style.transform=t.hg.style.transform=tr;
   t.body.style.opacity=st=='shed'?0:1;t.body.style.pointerEvents=st=='in'?'auto':'none';
   const gv=m<t.e&&(t.pri||t.n>5);t.gh.style.opacity=gv?.75:0;t.gh.style.pointerEvents=gv?'auto':'none';
-  const iw=m>=t.lo&&m<=t.hi&&(gv||st=='in');t.gh.classList.toggle('win',iw);t.body.classList.toggle('win',iw);t.tp.classList.toggle('win',iw);
+  const iw=m>=t.lo&&m<=t.hi&&(gv||st=='in');t.gh.classList.toggle('win',iw);t.body.classList.toggle('win',iw);
   if(st=='in')t.pri?np++:ne++});
  AG.textContent=fmt(m);
  ST.textContent=(m<6&&!np?'Before the first tooth':m<first?'Primary dentition':m<last?'Mixed dentition':'Permanent dentition')+' · '+np+' primary + '+ne+' permanent';
  $('rg').value=Math.round(m2p(m));
- if(hold)choose(hold);else{const lt=EV.filter(e=>e<=m+1e-6).pop();
-  lt!=null&&!(lt==EV[EV.length-1]&&m>lt+1e-6)?choose(evt(lt)):clearSel()}
+ const cur=currentEruption(m);cur?choose(cur):clearSel()
 }
 const evt=e=>T.filter(x=>x.e==e&&x.side<0),INFO0=$('info').innerHTML,same=(a,b)=>a.pri==b.pri&&a.n==b.n&&a.up==b.up;
 /* Glow turns on instantly and fades out over 0.45s from whatever brightness the pulse had reached (class gout) */
 function setGlow(x,on){const h=x.hg;
- if(on){[h,x.tp].forEach(g=>{g.classList.remove('gout');g.classList.add('glow')});return}
+ if(on){h.classList.remove('gout');h.classList.add('glow');return}
  if(!h.classList.contains('glow'))return;
  h.style.setProperty('--go',getComputedStyle(x.halo).opacity||.5);
- [h,x.tp].forEach(g=>{g.classList.remove('glow');g.classList.add('gout')})}
-function clearSel(){sel=null;T.forEach(x=>{['gh','body','tp'].forEach(k=>x[k].classList.remove('sel'));setGlow(x,false)});
+ h.classList.remove('glow');h.classList.add('gout')}
+function clearSel(){sel=null;T.forEach(x=>{['gh','body'].forEach(k=>x[k].classList.remove('sel'));setGlow(x,false)});
  $('info').innerHTML=INFO0;$('bd').hidden=$('mk').hidden=true}
-function choose(reps){sel=reps;const gl=Math.abs(M-reps[0].e)<1e-6;
- T.forEach(x=>{const c=reps.some(r=>same(r,x));x.gh.classList.toggle('sel',c);x.body.classList.toggle('sel',c);x.tp.classList.toggle('sel',c);setGlow(x,c&&gl)});
+function choose(reps){sel=reps;const gl=Math.abs(M-reps[0].e)<EPS;
+ T.forEach(x=>{const c=reps.some(r=>same(r,x));x.gh.classList.toggle('sel',c);x.body.classList.toggle('sel',c);setGlow(x,c&&gl)});
  const G=[];reps.forEach(r=>{const g=G.find(g=>g[0].pri==r.pri&&g[0].n==r.n);g?g.push(r):G.push([r])});
  G.sort((a,b)=>a[0].n-b[0].n);
  $('info').innerHTML=G.map((g,i)=>{g.sort((a,b)=>b.up-a.up);const t=g[0],u=t.pri?'mo':'y',v=f=>{const a=g.map(f);return a.length>1&&a[0]!=a[1]?g.map((r,j)=>(r.up?'Upper ':'Lower ')+a[j]).join(' · '):a[0]};
  return `<div style="${i?'border-top:1px solid var(--ln);margin-top:10px;padding-top:8px':''}"><h3>${g.map(r=>r.up?'Maxillary':'Mandibular').join(' &amp; ')} ${t.pri?'primary':'permanent'} ${t.name.toLowerCase()}s</h3>
  <p class="kv"><b>ADA range</b><span>${v(r=>rng(r.rg,u))}</span></p><p class="kv"><b>AAPD range</b><span>${v(r=>rng(r.ag,u))}</span></p></div>`}).join('');
- const lo=Math.min(...reps.map(r=>r.lo)),hi=Math.max(...reps.map(r=>r.hi)),bd=$('bd'),mk2=$('mk');
+ /* The band stops at the end of the timeline (AAPD third molars run to 30 y) */
+ const lo=Math.min(...reps.map(r=>r.lo)),hi=Math.min(END,Math.max(...reps.map(r=>r.hi))),bd=$('bd'),mk2=$('mk');
  bd.hidden=mk2.hidden=false;bd.style.left=m2p(lo)/10+'%';bd.style.width=(m2p(hi)-m2p(lo))/10+'%';mk2.style.left=m2p(reps[0].e)/10+'%'}
 /* Before any permanent tooth has erupted, tapping a primary tooth goes to the previous eruption if it is the one erupting now, otherwise to its own eruption age. Once a permanent tooth has erupted, tapping a visible primary tooth jumps to its permanent successor's eruption age. Tapping any permanent tooth while the timeline is exactly at its eruption age goes back to the previous eruption. Any other tooth jumps to its own eruption age. */
 function pick(t){
- const at=Math.abs(M-t.e)<1e-6;
- if(t.pri&&M<first-1e-6){if(at)goPrev();else{hold=evt(t.e);render(t.e);hold=null}return}
- if(t.pri&&M>=t.e-1e-6){hold=evt(t.succ.e);render(t.succ.e);hold=null;return}
+ const at=Math.abs(M-t.e)<EPS;
+ if(t.pri&&M<first-EPS){if(at)goPrev();else render(t.e);return}
+ if(t.pri&&M>=t.e-EPS){render(t.succ.e);return}
  if(at&&!t.pri){goPrev();return}
- if(sel&&sel.some(r=>same(r,t)))return;hold=evt(t.e);render(t.e);hold=null}
+ if(sel&&sel.some(r=>same(r,t)))return;render(t.e)}
 /* If a tooth is glowing when the source changes, follow it to its new eruption age so the glow stays on */
-function setMode(i){const k=MODES[i],keep=sel&&Math.abs(M-sel[0].e)<1e-6?sel[0]:null;
- T.forEach(t=>t.e=t[k]);T.forEach(t=>{if(t.pri)t.shed=t.succ.e});
+function setMode(i){const k=MODES[i],keep=sel&&Math.abs(M-sel[0].e)<EPS?sel[0]:null;
+ /* Eruption age, window start and window end all come from the chosen source, in months */
+ T.forEach(t=>{[t.lo,t.hi]=t[k].map(v=>v*(t.pri?1:12));t.e=t.lo});
+ T.forEach(t=>{if(t.pri)t.shed=t.succ.e});
  first=Math.min(...T.filter(t=>!t.pri).map(t=>t.e));last=Math.max(...T.filter(t=>t.pri).map(t=>t.shed));
  EV=[...new Set(T.map(t=>t.e))].sort((a,b)=>a-b);
  $('tkc').innerHTML='';EV.forEach(e=>{const d=document.createElement('div');d.className='et '+(e<36?'p':'e');d.style.left=m2p(e)/10+'%';$('tkc').appendChild(d)});
  MODES.forEach((_,j)=>$('m'+j).classList.toggle('on',j==i));$('mdesc').textContent=MD[i];
- hold=null;render(keep?keep.e:M)}
+ render(keep?keep.e:M)}
 const snapTo=m=>[0,...EV,p2m(1000)].reduce((b,e)=>Math.abs(m2p(e)-m2p(m))<Math.abs(m2p(b)-m2p(m))?e:b);
-$('rg').oninput=e=>{const m=p2m(+e.target.value);render($('sn').checked?snapTo(m):m)};
-$('sn').onchange=e=>{if(e.target.checked)render(snapTo(M))};
+/* Without snapping the timeline moves in whole months, so it can land exactly on an eruption month and the glow shows */
+$('rg').addEventListener('input',e=>{const m=p2m(+e.target.value);render($('sn').checked?snapTo(m):Math.round(m))});
+$('sn').addEventListener('change',e=>{if(e.target.checked)render(snapTo(M))});
 /* Next and Last continue to the far right end of the timeline once there is no eruption left */
 const END=p2m(1000);
-$('nx').onclick=()=>{const n=EV.find(e=>e>M+1e-6);if(n!=null)render(n);else if(M<END-1e-6)render(END)};
-$('fs').onclick=()=>render(0);
-$('ls').onclick=()=>render(END);
-function goPrev(){const p=EV.filter(e=>e<M-1e-6).pop();render(p!=null?p:0)}
-$('pv').onclick=goPrev;
+$('nx').addEventListener('click',()=>{const n=EV.find(e=>e>M+EPS);if(n!=null)render(n);else if(M<END-EPS)render(END)});
+$('fs').addEventListener('click',()=>render(0));
+$('ls').addEventListener('click',()=>render(END));
+function goPrev(){const p=EV.filter(e=>e<M-EPS).pop();render(p!=null?p:0)}
+$('pv').addEventListener('click',goPrev);
 [0,6,12,18,24,30].forEach(m=>{const s=document.createElement('span');s.textContent=m+(m?'m':'');s.style.left=m2p(m)/10+'%';$('tk').appendChild(s)});
 [3,6,9,12,15,18,21].forEach(y=>{const s=document.createElement('span');s.className='y';s.textContent=y+'y';s.style.left=m2p(y*12)/10+'%';$('tk').appendChild(s)});
-$('l0').onclick=()=>{mode=0;$('l0').classList.add('on');$('l1').classList.remove('on');relabel()};
-$('l1').onclick=()=>{mode=1;$('l1').classList.add('on');$('l0').classList.remove('on');relabel()};
-MODES.forEach((_,i)=>$('m'+i).onclick=()=>setMode(i));
-/* Keyboard: with snapping on, Right/Left step to the next/previous eruption. With snapping off, holding an arrow scrubs the timeline and speeds up the longer it is held. */
+$('l0').addEventListener('click',()=>{mode=0;$('l0').classList.add('on');$('l1').classList.remove('on');relabel()});
+$('l1').addEventListener('click',()=>{mode=1;$('l1').classList.add('on');$('l0').classList.remove('on');relabel()});
+MODES.forEach((_,i)=>$('m'+i).addEventListener('click',()=>setMode(i)));
+/* Keyboard.
+   Snapping on: Left/Right step to the previous/next eruption; holding the key repeats the step every 0.4 second.
+   Snapping off: each press moves 1 month; holding scrubs after a short delay and speeds up the longer it is held (whole months). */
+const HOLD_REPEAT_MS=400;
 let kh=null;
-const stopKey=()=>{if(kh){cancelAnimationFrame(kh.raf);kh=null}};
-const scrub=d=>render(p2m(Math.min(1000,Math.max(0,m2p(M)+d))));
+const stopKey=()=>{if(kh){cancelAnimationFrame(kh.raf);clearInterval(kh.timer);kh=null}};
 function keyLoop(now){if(!kh)return;const dt=Math.min(.05,(now-kh.last)/1000),held=(now-kh.t0)/1000;kh.last=now;
- if(held>.35)scrub(kh.dir*Math.min(500,60+(held-.35)*250)*dt);
+ if(held>.35){kh.pos=Math.min(1000,Math.max(0,kh.pos+kh.dir*Math.min(500,60+(held-.35)*250)*dt));render(Math.round(p2m(kh.pos)))}
  kh.raf=requestAnimationFrame(keyLoop)}
 const keyDir=e=>e.key=='ArrowRight'?1:e.key=='ArrowLeft'?-1:0;
 document.addEventListener('keydown',e=>{const dir=keyDir(e);
  if(!dir||e.ctrlKey||e.metaKey||e.altKey||e.shiftKey)return;
  e.preventDefault();if(e.repeat)return;stopKey();
- if($('sn').checked){dir>0?$('nx').click():goPrev();return}
- scrub(dir*2);const now=performance.now();kh={dir,t0:now,last:now};kh.raf=requestAnimationFrame(keyLoop)});
+ if($('sn').checked){const step=()=>dir>0?$('nx').click():goPrev();step();kh={dir,timer:setInterval(step,HOLD_REPEAT_MS)};return}
+ render(Math.min(END,Math.max(0,Math.round(M)+dir)));
+ const now=performance.now();kh={dir,t0:now,last:now,pos:m2p(M)};kh.raf=requestAnimationFrame(keyLoop)});
 document.addEventListener('keyup',e=>{if(kh&&keyDir(e)==kh.dir)stopKey()});
 window.addEventListener('blur',stopKey);
 relabel();setMode(0);
