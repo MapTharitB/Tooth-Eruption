@@ -4,17 +4,17 @@
 <style>
 
 /* Soft Mineral: reference palette, one consistent component system. */
-:root{color-scheme:light;--bg:#e0eaf0;--card:#f0f6f9;--diagram:#d5e4ed;--tx:#0a2943;--mut:#385e7b;--ln:#c8dce8;--trk:#b9cfdd;--acc:#357194;--win:#a66b09;--sel:#173e58;--glow:#ffb400;--gb:#299cf0}
+:root{color-scheme:light;--bg:#e0eaf0;--card:#f0f6f9;--diagram:#d5e4ed;--tx:#0a2943;--mut:#385e7b;--ln:#c8dce8;--trk:#b9cfdd;--acc:#357194;--win:#a66b09;--sel:#173e58;--glow:#ffb400;--gb:#2997e6}
 *{box-sizing:border-box}body{margin:0;color:var(--tx);background:var(--bg);font:16px/1.5 'Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased}main{max-width:1536px;margin:auto;padding:32px 36px}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--acc);outline-offset:3px}h1,h3,p{margin:0}h1{display:flex;align-items:baseline;gap:16px;font-size:38px;letter-spacing:-1.1px;line-height:1.2}h1 small{position:relative;top:-3.5px;font-size:24px;letter-spacing:0;font-weight:400;color:var(--mut);margin-left:0;white-space:nowrap}h3{font-size:20px;line-height:1.3;letter-spacing:-.3px}.mut,.caption{color:var(--mut)}.caption{font-size:13px}.eyebrow{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
-.header{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:62px;margin-bottom:18px}.settings{display:flex;align-items:center;gap:22px;border:1px solid var(--ln);border-radius:14px;padding:7px 12px;background:var(--card)}.setting{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--tx)}.segmented{display:flex;gap:2px;border:1px solid var(--ln);border-radius:9px;background:#e8f1f7;padding:2px}.segmented button{min-height:38px;padding:8px 16px;border:0;border-radius:7px;color:var(--tx);background:transparent;font-size:14px;font-weight:500;white-space:nowrap}.segmented button.on{color:#fff;background:var(--acc);box-shadow:0 2px 4px #204b6418}
-.card{border:1px solid var(--ln);border-radius:16px;background:var(--card)}.diagram-card{border:0;background:none}.status{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;min-height:76px;padding:14px 28px;margin-bottom:12px;border:1px solid var(--ln);border-radius:16px;background:var(--card)}.status>div+div{border-left:1px solid var(--ln);padding-left:28px}.stage,.counts{font-size:20px;font-weight:600;white-space:nowrap}.diagram-surface{position:relative;background:var(--diagram);border:1px solid var(--ln);border-radius:16px;overflow:hidden}.diagram-scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#9bb8cb transparent;padding:8px 12px}.diagram-scroll svg{display:block;width:100%;min-width:760px;height:340px}.mouth-age{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(600px,90%);height:72px;text-align:center;pointer-events:none;display:flex;flex-direction:column;justify-content:center;isolation:isolate}.mouth-age:before{content:'';position:absolute;inset:0 18%;background:var(--diagram);border-radius:50%;filter:blur(12px);z-index:-1}.mouth-age .caption{font-size:12px;margin-bottom:0}.age{font-size:36px;font-weight:700;line-height:1.35;letter-spacing:-.8px;font-variant-numeric:tabular-nums;white-space:nowrap}.swipe-hint{display:none;text-align:center;font-size:11px;color:var(--mut);padding:0 0 8px}.legend{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:10px 20px 0;font-size:12px;color:var(--mut)}.legend span{display:inline-flex;align-items:center;gap:7px}.legend .orientation{display:none}.sw{display:inline-block;width:12px;height:12px;border-radius:4px;border:1.5px solid}.primary-key{background:#c0def5;border-color:#518fba}.permanent-key{background:#f6ebd1;border-color:#ad945e}.window-key{border:2px solid var(--win)}
-.sh{stroke-width:1;stroke-linejoin:round}.pr{fill:url(#primaryEnamel);stroke:#91b9d3}.pe{fill:url(#permanentEnamel);stroke:#d5bf91}.gh .sh{fill:transparent;stroke-dasharray:4 4;stroke-width:1.5}.gh .pr{stroke:#739fb8}.gh .pe{stroke:#b29b74}.lb{font-size:13px;font-weight:600;fill:#12344b;text-anchor:middle;pointer-events:none}.gh .lb{fill:#08283c}.bd:focus-visible .sh,.gh:focus-visible .sh{stroke:var(--acc);stroke-width:2}
-.halo{display:none;pointer-events:none;stroke-width:13.5;stroke-linejoin:round}.hp{fill:var(--gb);stroke:var(--gb)}.he{fill:var(--glow);stroke:var(--glow)}.glow .halo,.gout .halo{display:inline}.glow .halo{animation:glow 1.3s ease-in-out infinite alternate}.gout .halo{animation:gfade .45s ease-out forwards}@keyframes glow{from{opacity:.42}to{opacity:.65}}@keyframes gfade{from{opacity:var(--go,.5)}to{opacity:0}}.bd,.hg,.mask-tooth{transform-box:view-box;transform-origin:0 0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s}.bd,.gh{cursor:pointer}.gh{transition:opacity .4s}
+.header{--credit-gap:16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px var(--credit-gap);min-height:62px;margin-bottom:18px}.header>div{flex-shrink:0}.header h1{gap:var(--credit-gap);white-space:nowrap}.settings{display:flex;align-items:center;gap:11px;border:1px solid var(--ln);border-radius:14px;padding:7px 12px;background:var(--card)}.setting{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--tx)}.segmented{display:flex;gap:2px;border:1px solid var(--ln);border-radius:9px;background:#e8f1f7;padding:2px}.segmented button{min-height:38px;padding:8px 16px;border:0;border-radius:7px;color:var(--tx);background:transparent;font-size:14px;font-weight:500;white-space:nowrap}.segmented button.on{color:#fff;background:var(--acc);box-shadow:0 2px 4px #204b6418}
+.card{border:1px solid var(--ln);border-radius:16px;background:var(--card)}.diagram-card{border:0;background:none}.status{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;min-height:76px;padding:14px 28px;margin-bottom:12px;border:1px solid var(--ln);border-radius:16px;background:var(--card)}.status>div+div{border-left:1px solid var(--ln);padding-left:28px}.stage,.counts{font-size:20px;font-weight:600;white-space:nowrap}.diagram-surface{position:relative;background:var(--diagram);border:1px solid var(--ln);border-radius:16px;overflow:hidden}.diagram-scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#9bb8cb transparent;padding:8px 12px}.diagram-scroll svg{display:block;width:100%;min-width:760px;height:340px}.mouth-age{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(600px,90%);height:72px;text-align:center;pointer-events:none;display:flex;flex-direction:column;justify-content:center;isolation:isolate}.mouth-age:before{content:'';position:absolute;inset:0 18%;background:var(--diagram);border-radius:50%;filter:blur(12px);z-index:-1}.mouth-age .caption{font-size:12px;margin-bottom:0}.age{font-size:36px;font-weight:700;line-height:1.35;letter-spacing:-.8px;font-variant-numeric:tabular-nums;white-space:nowrap}.swipe-hint{display:none;text-align:center;font-size:11px;color:var(--mut);padding:0 0 8px}.legend{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:10px 20px 0;font-size:12px;color:var(--mut)}.legend span{display:inline-flex;align-items:center;gap:7px}.legend .orientation{display:none}.sw{display:inline-block;width:12px;height:12px;border-radius:4px;border:1.5px solid}.primary-key{background:#9bcff2;border-color:#4e91c1}.permanent-key{background:#f6ebd1;border-color:#ad945e}.window-key{border:2px solid var(--win)}
+.sh{stroke-width:1;stroke-linejoin:round}.pr{fill:url(#primaryEnamel);stroke:#4e91c1}.pe{fill:url(#permanentEnamel);stroke:#d5bf91}.gh .sh{fill:transparent;stroke-dasharray:4 4;stroke-width:1.5}.gh .pr{stroke:#739fb8}.gh .pe{stroke:#b29b74}.lb{font-size:13px;font-weight:600;fill:#12344b;text-anchor:middle;pointer-events:none}.gh .lb{fill:#08283c}.bd:focus-visible .sh,.gh:focus-visible .sh{stroke:var(--acc);stroke-width:2}
+.halo{display:none;pointer-events:none;stroke-width:13.5;stroke-linejoin:round}.hp{fill:var(--gb);stroke:var(--gb)}.he{fill:var(--glow);stroke:var(--glow)}.glow .halo,.gout .halo{display:inline}.glow .halo{animation:glow 1.3s ease-in-out infinite alternate}.gout .halo{animation:gfade .45s ease-out forwards}.glow .hp{animation-name:primaryGlow}@keyframes primaryGlow{from{opacity:.55}to{opacity:.78}}@keyframes glow{from{opacity:.42}to{opacity:.65}}@keyframes gfade{from{opacity:var(--go,.5)}to{opacity:0}}.bd,.hg,.mask-tooth{transform-box:view-box;transform-origin:0 0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s}.bd,.gh{cursor:pointer}.gh{transition:opacity .4s}
 .timeline-card{padding:16px 28px 20px;margin-top:12px}.timeline-head{display:flex;align-items:center;justify-content:space-between;min-height:28px;margin-bottom:4px}.timeline-head h3{font-size:14px;font-weight:600}.snap{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--tx);cursor:pointer;min-height:32px}.snap input{appearance:none;width:34px;height:20px;border-radius:20px;background:#91aaba;position:relative;margin:0;cursor:pointer}.snap input:checked{background:var(--acc)}.snap input:after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;background:#fff;border-radius:50%;transition:transform .15s}.snap input:checked:after{transform:translateX(14px)}.sl{position:relative;height:44px}.in{position:absolute;left:14px;right:14px;inset-block:0}.trk{position:absolute;inset-inline:0;top:12px;height:20px;background:var(--trk);border-radius:6px}.band{position:absolute;top:12px;height:20px;background:var(--win);opacity:.35;border-radius:4px}.et{position:absolute;top:15px;height:14px;width:3px;margin-left:-1.5px;border-radius:2px;pointer-events:none}.et.p{background:#3f7b9f}.et.e{background:#88703c}.mk{position:absolute;top:10px;height:24px;width:3px;margin-left:-1.5px;background:var(--win);border-radius:2px}input[type=range]{appearance:none;position:absolute;inset:0;width:100%;margin:0;background:transparent;cursor:pointer}input[type=range]::-webkit-slider-runnable-track{height:44px;background:transparent}input[type=range]::-webkit-slider-thumb{appearance:none;width:28px;height:28px;margin-top:8px;border-radius:50%;background:var(--acc);border:4px solid var(--card);box-shadow:0 0 0 1.5px var(--acc)}input[type=range]::-moz-range-track{background:transparent}input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--acc);border:4px solid var(--card);box-shadow:0 0 0 1.5px var(--acc)}.tk{position:relative;height:24px;margin:0 14px;color:var(--mut);font-size:12px}.tk span{position:absolute;transform:translateX(-50%)}.tk .y{color:var(--mut)}.ctl{display:flex;gap:14px;max-width:1040px;margin:12px auto 0}.ctl button{display:flex;justify-content:center;align-items:center;gap:10px;flex:1;min-height:46px;padding:10px 12px;border:1px solid var(--ln);border-radius:9px;background:transparent;color:var(--tx);font-size:14px;font-weight:500}.ctl button.w{flex:1.4}.ctl button:hover{background:#e0edf5}.ctl #nx{background:var(--acc);border-color:var(--acc);color:white}.ctl #nx:hover{background:#2d6282}.ctl svg{width:16px;height:16px;flex:none}.ctl button:active{transform:translateY(1px)}#mdesc{font-size:11px;color:var(--mut);margin:10px 4px 14px}
 .details-grid{display:grid;grid-template-columns:minmax(0,1fr) min(52.5%,640px);gap:12px;align-items:start}.details-grid>.card{min-width:0;padding:20px 24px;min-height:246px}#info h3{font-size:19px;margin:0 0 12px}.kv{display:grid;grid-template-columns:100px 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--ln);font-size:14px}.kv b{font-weight:500;color:var(--mut)}.kv span{font-weight:600}.empty-icon{font-size:24px;color:var(--acc);margin:8px 0}.footer{font-size:11px;color:var(--mut);text-align:center;margin-top:16px}
-@media(max-width:1150px){main{padding:28px 24px}h1{font-size:30px}h1 small{font-size:19.5px;top:-2.5px}.settings{gap:12px}.segmented button{padding-inline:12px}.diagram-scroll svg{height:320px}}
-@media(max-width:899px){main{padding:24px 16px}.header{align-items:flex-start;flex-direction:column;gap:16px}.settings{width:100%;justify-content:space-between}.status{gap:20px;padding:14px 20px}.status>div+div{padding-left:20px}.stage,.counts{font-size:17px}.details-grid{grid-template-columns:1fr}.details-grid>.card{min-height:0}.diagram-scroll svg{height:300px}.age{font-size:28px}.mouth-age{height:64px}.timeline-card{padding:16px 20px}.ctl{gap:8px}.ctl button{font-size:12px;padding-inline:7px}.legend{padding-inline:10px;gap:16px}}
-@media(max-width:520px){main{padding:20px 12px}h1{font-size:29px}h1 small{font-size:18px;top:-3px}.settings{flex-wrap:wrap;gap:10px;padding:10px 12px}.setting{justify-content:space-between;width:100%}.segmented button{min-height:44px;padding-inline:18px}.status{grid-template-columns:1fr;gap:8px;padding:12px 16px;min-height:92px}.status>div{display:flex;justify-content:space-between;align-items:center;gap:8px}.status>div+div{border:0;padding:0}.caption{font-size:12px}.stage,.counts{font-size:14px}.diagram-scroll{padding-inline:6px}.diagram-scroll svg{height:280px}.age{font-size:20px;letter-spacing:-.3px}.mouth-age{height:52px;top:calc(50% - 10px)}.mouth-age .caption{font-size:10px}.legend{font-size:10px;gap:8px 12px;padding:10px 6px 0}.timeline-card{padding:14px}.timeline-head h3{font-size:12px}.snap{font-size:11px}.tk{font-size:10px}.tk span:nth-child(2),.tk span:nth-child(4),.tk span:nth-child(6),.tk span:nth-child(8),.tk span:nth-child(10),.tk span:nth-child(12){display:none}.ctl{display:grid;grid-template-columns:1fr 1fr}#pv{order:0}#nx{order:1}#fs{order:2}#ls{order:3}.ctl button{font-size:12px;gap:7px}.details-grid>.card{padding:18px}#info h3{font-size:17px}.kv{font-size:13px;grid-template-columns:88px 1fr}}
+@media(max-width:1150px){main{padding:28px 24px}h1{font-size:30px}h1 small{font-size:19.5px;top:-2.5px}.settings{gap:6px}.segmented button{padding-inline:12px}.diagram-scroll svg{height:320px}}
+@media(max-width:899px){main{padding:24px 16px}.status{gap:20px;padding:14px 20px}.status>div+div{padding-left:20px}.stage,.counts{font-size:17px}.details-grid{grid-template-columns:1fr}.details-grid>.card{min-height:0}.diagram-scroll svg{height:300px}.age{font-size:28px}.mouth-age{height:64px}.timeline-card{padding:16px 20px}.ctl{gap:8px}.ctl button{font-size:12px;padding-inline:7px}.legend{padding-inline:10px;gap:16px}}
+@media(max-width:520px){main{padding:20px 12px}h1{font-size:29px}h1 small{font-size:18px;top:-3px}.settings{flex-wrap:nowrap;gap:6px;padding:7px 8px}.setting{flex:1 1 auto;min-width:0;gap:6px;font-size:11px;white-space:nowrap}.setting>span{flex:none}.setting .segmented{flex:1 1 auto;min-width:0}.segmented button{flex:1 0 auto;min-width:44px;min-height:44px;padding-inline:4px;font-size:12px}.status{grid-template-columns:1fr;gap:8px;padding:12px 16px;min-height:92px}.status>div{display:flex;justify-content:space-between;align-items:center;gap:8px}.status>div+div{border:0;padding:0}.caption{font-size:12px}.stage,.counts{font-size:14px}.diagram-scroll{padding-inline:6px}.diagram-scroll svg{height:280px}.age{font-size:20px;letter-spacing:-.3px}.mouth-age{height:52px;top:calc(50% - 10px)}.mouth-age .caption{font-size:10px}.legend{font-size:10px;gap:8px 12px;padding:10px 6px 0}.timeline-card{padding:14px}.timeline-head h3{font-size:12px}.snap{font-size:11px}.tk{font-size:10px}.tk span:nth-child(2),.tk span:nth-child(4),.tk span:nth-child(6),.tk span:nth-child(8),.tk span:nth-child(10),.tk span:nth-child(12){display:none}.ctl{display:grid;grid-template-columns:1fr 1fr}#pv{order:0}#nx{order:1}#fs{order:2}#ls{order:3}.ctl button{font-size:12px;gap:7px}.details-grid>.card{padding:18px}#info h3{font-size:17px}.kv{font-size:13px;grid-template-columns:88px 1fr}}
 
 /* Keep the full desktop composition in view; age length cannot change geometry. */
 @media(min-width:900px){.diagram-scroll svg{height:280px}.status{min-height:68px;padding-block:10px}.timeline-card{padding-block:12px 16px}.timeline-head{min-height:24px}.ctl{margin-top:8px}.detail-groups{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail-group:nth-child(even){border-left:1px solid var(--ln);padding-left:20px}#info .detail-group h3{min-height:52px;font-size:18px}.kv{grid-template-columns:85px 1fr;font-size:13px}.details-grid>.card{min-height:246px}}
@@ -22,8 +22,8 @@
 
 @media(min-width:900px){.details-grid>.card{padding:16px 24px}#mdesc{margin:6px 4px 10px}}
 /* A complete mouth fits the phone; no off-screen half-arch or retained scroll. */
-@media(max-width:899px){.diagram-scroll{overflow:hidden;padding:8px 6px}.diagram-scroll svg{min-width:0;height:260px}.arch-name{display:none}.patient-orientation{font-size:21px}.lb{font-size:21px}.mouth-age{top:50%}.swipe-hint{display:none!important}}
-@media(max-width:520px){.diagram-scroll svg{height:170px}.patient-orientation{font-size:24px}.lb{font-size:20px}}
+@media(max-width:899px){.diagram-scroll{overflow:hidden;padding:8px 6px}.diagram-scroll svg{min-width:0;height:260px}.arch-name{display:none}.patient-orientation{display:none}.lb{font-size:15px}.mouth-age{top:50%}.swipe-hint{display:none!important}}
+@media(max-width:520px){.diagram-scroll svg{height:170px}.lb{font-size:16px}}
 /* Scale the complete mouth uniformly with the available screen width. */
 main{max-width:none}
 .diagram-scroll svg{min-width:0;height:auto;aspect-ratio:960/300}
@@ -47,11 +47,20 @@ main{max-width:none}
 .sequence-circle{display:inline-flex;align-items:center;justify-content:center;flex:none;width:28px;height:28px;border:1px solid #659fc9;border-radius:50%;background:linear-gradient(#d3ebfc,#aad5f5);font-size:14px;font-weight:500;line-height:1;color:var(--tx)}
 .permanent .sequence-circle{border-color:#d5ae68;background:linear-gradient(#fff8e8,#f9e8bf)}
 .sequence-name{font-size:10px;line-height:1.3;font-weight:400;color:var(--mut)}
-@media(max-width:1150px) and (min-width:900px){.header{flex-wrap:wrap}.sequence-row{grid-template-columns:1fr}.sequence-label{flex-direction:row;justify-content:flex-start;align-items:center;gap:8px;border:0;padding:0}.sequence-label br{display:none}.sequence-label>span{margin:0}}
-@media(max-width:520px){.settings-divider{display:none}.sequence-heading h3{font-size:19px}.sequence-row{grid-template-columns:1fr;gap:10px;padding:12px 8px}.sequence-label{flex-direction:row;justify-content:flex-start;align-items:center;gap:8px;border:0;padding:0}.sequence-label br{display:none}.sequence-label>span{margin:0}.sequence{gap:3px}.sequence-circle{width:24px;height:24px;font-size:12px}.sequence-name{font-size:9px}.sequence li:not(:last-child):after{right:-4px;top:1px;font-size:14px}}
+@media(max-width:1150px) and (min-width:900px){.sequence-row{grid-template-columns:1fr}.sequence-label{flex-direction:row;justify-content:flex-start;align-items:center;gap:8px;border:0;padding:0}.sequence-label br{display:none}.sequence-label>span{margin:0}}
+@media(max-width:520px){.settings-divider{display:block;font-size:16px}.sequence-heading h3{font-size:19px}.sequence-row{grid-template-columns:1fr;gap:10px;padding:12px 8px}.sequence-label{flex-direction:row;justify-content:flex-start;align-items:center;gap:8px;border:0;padding:0}.sequence-label br{display:none}.sequence-label>span{margin:0}.sequence{gap:3px}.sequence-circle{width:24px;height:24px;font-size:12px}.sequence-name{font-size:9px}.sequence li:not(:last-child):after{right:-4px;top:1px;font-size:14px}}
 /* Tooth focus follows the crown silhouette instead of the SVG bounding box. */
 #sv [role="button"]:focus{outline:none}
 @media(min-width:1200px) and (orientation:landscape){.age{font-size:52px}.mouth-age{height:88px}.mouth-age .caption{bottom:calc(50% + 36px)}}
+.arch-annotation{display:none}
+@media(max-width:899px){
+ .arch-annotation{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px 0;font-size:11px;line-height:1.3;color:var(--mut)}
+ .arch-annotation strong{font-weight:600;color:var(--tx)}
+ .arch-annotation.lower{padding:0 10px 8px}
+ .mouth-age{top:50%}
+}
+@media(max-width:520px){.settings{width:100%}.arch-annotation{font-size:10px;flex-wrap:wrap;justify-content:center;gap:2px 12px}.arch-annotation strong{flex-basis:100%;text-align:center}}
+@media(max-width:360px){.settings{gap:4px;padding-inline:6px}.setting{gap:4px;font-size:10px}.settings .segmented button{font-size:11px}}
 </style></head><body><main>
 
 <header class="header">
@@ -64,7 +73,7 @@ main{max-width:none}
 </header>
 <section class="card diagram-card" aria-label="Dentition at selected age">
  <div class="status"><div><div class="caption">Eruption stage</div><div class="stage" id="stage"></div></div><div><div class="caption">Visible teeth</div><div class="counts" id="counts"></div></div></div>
- <div class="diagram-surface"><div class="diagram-scroll" id="diagramScroll" role="region" aria-label="Complete tooth diagram"><svg id="sv" viewBox="0 0 960 300" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Upper and lower tooth rows"></svg></div><div class="mouth-age"><div class="caption">Current age</div><div class="age" id="age">0 months</div></div><p class="swipe-hint" id="swipeHint" hidden></p></div>
+ <div class="diagram-surface"><div class="arch-annotation"><strong>Upper · Maxillary</strong><span>Patient’s right ← · → Patient’s left</span></div><div class="diagram-scroll" id="diagramScroll" role="region" aria-label="Complete tooth diagram"><svg id="sv" viewBox="0 0 960 300" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Upper and lower tooth rows"></svg></div><div class="arch-annotation lower"><strong>Lower · Mandibular</strong><span>Patient’s right ← · → Patient’s left</span></div><div class="mouth-age"><div class="caption">Current age</div><div class="age" id="age">0 months</div></div><p class="swipe-hint" id="swipeHint" hidden></p></div>
  <div class="legend"><span><i class="sw primary-key"></i>Primary</span><span><i class="sw permanent-key"></i>Permanent</span><span><i class="sw window-key"></i>Eruption window</span><span class="orientation">Patient’s right ← · → Patient’s left</span></div>
 </section>
 <section class="card timeline-card" aria-label="Age timeline">
@@ -136,7 +145,7 @@ mk('defs',{},svg).innerHTML='<clipPath id="cu"><rect x="0" y="'+UG+'" width="960
 // Soft rose tissue is behind the teeth; no opaque bars cover crown movement.
 mk('defs',{},svg).innerHTML=`
  <linearGradient id="gumTint"><stop stop-color="#df9fa9" stop-opacity="0"/><stop offset=".08" stop-color="#df9fa9" stop-opacity=".82"/><stop offset=".92" stop-color="#df9fa9" stop-opacity=".82"/><stop offset="1" stop-color="#df9fa9" stop-opacity="0"/></linearGradient>
- <linearGradient id="primaryEnamel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b4d8f2"/><stop offset=".5" stop-color="#c4e1f5"/><stop offset="1" stop-color="#afd4ee"/></linearGradient>
+ <linearGradient id="primaryEnamel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#93cbf0"/><stop offset=".5" stop-color="#a9d8f7"/><stop offset="1" stop-color="#83bfe9"/></linearGradient>
  <linearGradient id="permanentEnamel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff3db"/><stop offset=".55" stop-color="#f6ebd3"/><stop offset="1" stop-color="#ecd9b6"/></linearGradient>`;
 [UG-19,LG].forEach(y=>mk('rect',{class:'gingiva',x:20,y,width:920,height:19,rx:8,fill:'url(#gumTint)','pointer-events':'none'},svg));
 // Current-event cutout registry. Cohort masks below reuse its animated crown
@@ -209,13 +218,15 @@ T.forEach(t=>{const cx=480+t.side*(t.n-.5)*48,gy=t.up?UG:LG,d=t.up?1:-1;t.h=t.ch
   T.forEach(t=>{
    const own=t[key][0]*(t.pri?1:12)===age;
    const cutout=mk('use',{href:`#cutout-${t.fdi}`,transform:`translate(${t.cx},${t.gy})`},mask);
-   if(!own){cutout.style.opacity='0';t.otherCohortCutouts.push(cutout)}
+   // An invisible <use> still instantiates animated geometry in SVG engines.
+   // Keep inactive references detached from the crown definition entirely.
+   if(!own){cutout.removeAttribute('href');cutout.style.opacity='0';t.otherCohortCutouts.push(cutout)}
   });
  });
 });
 // Keep the shared halo above crowns, tooth labels, and diagram decorations.
 svg.appendChild(hU);svg.appendChild(hL);
-let mode=0,sel=null,M=0,first=0,last=0,EV=[];
+let mode=0,sel=null,M=0,first=0,last=0,EV=[],sourceRevision=0,selectionKey=null,detailKey=null;
 const MODES=['rg','ag'],MD=['ADA: each tooth erupts at the first age of the ADA range.','AAPD: each tooth erupts at the first age of the AAPD range.'];
 function relabel(){T.forEach(t=>{t.ghl.textContent=t.bl.textContent=mode?t.pal:t.fdi})}
 const p2m=p=>p<=360?p/10:36+(p-360)/640*228,m2p=m=>m<=36?m*10:360+(m-36)/228*640;
@@ -227,44 +238,61 @@ const rng=(a,u)=>(a[0]==a[1]?a[0]:a[0]+'–'+a[1])+(u=='y'?' y':(a[1]<12?' month
 /* Latest eruption at or before m. Nothing is selected before the first eruption or once past the last one. */
 function currentEruption(m){const lt=EV.filter(e=>e<=m+EPS).pop();
  return lt!=null&&!(lt==EV[EV.length-1]&&m>lt+EPS)?evt(lt):null}
-function render(m){M=m;let np=0,ne=0;
+// Collect outgoing pulse brightness before changing any styles or mask geometry.
+function readOutgoingGlow(reps,m){
+ const glowing=reps&&Math.abs(m-reps[0].e)<EPS;
+ T.forEach(t=>{t.fadeOpacity=t.hg.classList.contains('glow')&&!(glowing&&reps.some(r=>same(r,t)))?getComputedStyle(t.halo).opacity:null});
+}
+const textIfChanged=(el,value)=>{if(el.textContent!==value)el.textContent=value};
+function render(m){
+ if(sliderFrame){cancelAnimationFrame(sliderFrame);sliderFrame=0;pendingAge=null}
+ const cur=currentEruption(m);readOutgoingGlow(cur,m);M=m;let np=0,ne=0;
  T.forEach(t=>{const st=t.pri?(m<t.e?'pre':m<t.shed?'in':'shed'):(m<t.e?'pre':'in'),d=t.up?1:-1,s=t.s;
   /* Shed primary teeth tilt outward from the midline, so the two sides of the arch mirror each other */
   const tr=st=='pre'?`translateY(${-d*(t.h*s+8)}px) scale(${s})`:st=='in'?`scale(${s})`:`translateY(${d*50}px) rotate(${-t.side*d*14}deg) scale(${s})`;
+  if(t.renderState!==st){t.renderState=st;
   t.body.style.transform=t.hg.style.transform=t.maskBody.style.transform=tr;
   t.maskBody.style.opacity=st=='shed'?0:1;
   t.body.style.opacity=st=='shed'?0:1;t.body.style.pointerEvents=st=='in'?'auto':'none';
-  const gv=m<t.e&&(t.pri||t.n>5);t.gh.style.opacity=gv?.75:0;t.gh.style.pointerEvents=gv?'auto':'none';
   t.body.setAttribute('tabindex',st=='in'?'0':'-1');t.body.setAttribute('aria-hidden',st=='in'?'false':'true');
+  }
+  const gv=m<t.e&&(t.pri||t.n>5);
+  if(t.renderGhost!==gv){t.renderGhost=gv;t.gh.style.opacity=gv?.75:0;t.gh.style.pointerEvents=gv?'auto':'none';
   t.gh.setAttribute('tabindex',gv?'0':'-1');t.gh.setAttribute('aria-hidden',gv?'false':'true');
-  const iw=m>=t.lo&&m<=t.hi&&(gv||st=='in');t.gh.classList.toggle('win',iw);t.body.classList.toggle('win',iw);
+  }
+  const iw=m>=t.lo&&m<=t.hi&&(gv||st=='in');if(t.renderWindow!==iw){t.renderWindow=iw;t.gh.classList.toggle('win',iw);t.body.classList.toggle('win',iw)}
   if(st=='in')t.pri?np++:ne++});
- AG.textContent=fmt(m);
+ textIfChanged(AG,fmt(m));
  ST.textContent=(m<6&&!np?'Before the first tooth':m<first?'Primary dentition':m<last?'Mixed dentition':'Permanent dentition')+' · '+np+' primary + '+ne+' permanent';
- $('stage').textContent=ST.textContent.split(' · ')[0];
- $('counts').textContent=np+' primary · '+ne+' permanent';
- $('rg').setAttribute('aria-valuetext',fmt(m));
+ textIfChanged($('stage'),ST.textContent.split(' · ')[0]);
+ textIfChanged($('counts'),np+' primary · '+ne+' permanent');
+ if($('rg').getAttribute('aria-valuetext')!==fmt(m))$('rg').setAttribute('aria-valuetext',fmt(m));
  $('rg').value=Math.round(m2p(m));
- const cur=currentEruption(m);cur?choose(cur):clearSel()
+ cur?choose(cur):clearSel()
 }
 const evt=e=>T.filter(x=>x.e==e&&x.side<0),INFO0=$('info').innerHTML,same=(a,b)=>a.pri==b.pri&&a.n==b.n&&a.up==b.up;
 function shieldCurrentTooth(t,on){
+ if(t.shieldOn===on)return;t.shieldOn=on;
  const opacity=on?'1':'0';
  t.maskPosition.style.opacity=opacity;
- t.otherCohortCutouts.forEach(cutout=>cutout.style.opacity=opacity);
+ t.otherCohortCutouts.forEach(cutout=>{if(on)cutout.setAttribute('href',`#cutout-${t.fdi}`);else cutout.removeAttribute('href');cutout.style.opacity=opacity});
 }
 /* Glow turns on instantly and fades out over 0.45s from whatever brightness the pulse had reached (class gout) */
 function setGlow(x,on){const h=x.hg;
+ if(on===h.classList.contains('glow'))return;
  if(on){shieldCurrentTooth(x,true);h.classList.remove('gout');h.classList.add('glow');return}
  // A previous eruption must stop cutting holes in the new foreground halo immediately.
  shieldCurrentTooth(x,false);
  if(!h.classList.contains('glow'))return;
- h.style.setProperty('--go',getComputedStyle(x.halo).opacity||.5);
+ h.style.setProperty('--go',x.fadeOpacity??getComputedStyle(x.halo).opacity??.5);
  h.classList.remove('glow');h.classList.add('gout')}
-function clearSel(){sel=null;T.forEach(x=>{['gh','body'].forEach(k=>{x[k].classList.remove('sel');x[k].setAttribute('aria-pressed','false')});setGlow(x,false)});
+function clearSel(){sel=null;if(selectionKey==='none')return;selectionKey='none';detailKey=null;T.forEach(x=>{['gh','body'].forEach(k=>{x[k].classList.remove('sel');x[k].setAttribute('aria-pressed','false')});setGlow(x,false)});
  $('info').innerHTML=INFO0;$('bd').hidden=$('mk').hidden=true}
 function choose(reps){sel=reps;const gl=Math.abs(M-reps[0].e)<EPS;
+ const details=sourceRevision+':'+reps.map(t=>t.fdi).join(',');const key=details+':'+gl;
+ if(selectionKey===key)return;selectionKey=key;
  T.forEach(x=>{const c=reps.some(r=>same(r,x));[x.gh,x.body].forEach(g=>g.setAttribute('aria-pressed',String(c)));x.gh.classList.toggle('sel',c);x.body.classList.toggle('sel',c);setGlow(x,c&&gl)});
+ if(detailKey===details)return;detailKey=details;
  const G=[];reps.forEach(r=>{const g=G.find(g=>g[0].pri==r.pri&&g[0].n==r.n);g?g.push(r):G.push([r])});
  G.sort((a,b)=>a[0].n-b[0].n);
  $('info').innerHTML='<p class="eyebrow">Tooth information</p><div class="detail-groups">'+G.map((g,i)=>{g.sort((a,b)=>b.up-a.up);const t=g[0],u=t.pri?'mo':'y',v=f=>{const a=g.map(f);return a.length>1&&a[0]!=a[1]?g.map((r,j)=>(r.up?'Upper ':'Lower ')+a[j]).join(' · '):a[0]};
@@ -282,6 +310,7 @@ function pick(t){
  if(sel&&sel.some(r=>same(r,t)))return;render(t.e)}
 /* If a tooth is glowing when the source changes, follow it to its new eruption age so the glow stays on */
 function setMode(i){const k=MODES[i],keep=sel&&Math.abs(M-sel[0].e)<EPS?sel[0]:null;
+ sourceRevision++;
  /* Eruption age, window start and window end all come from the chosen source, in months */
  T.forEach(t=>{[t.lo,t.hi]=t[k].map(v=>v*(t.pri?1:12));t.e=t.lo;t.haloLayer.setAttribute('mask',`url(#cohort-${i}-${t.e})`)});
  T.forEach(t=>{if(t.pri)t.shed=t.succ.e});
@@ -292,7 +321,10 @@ function setMode(i){const k=MODES[i],keep=sel&&Math.abs(M-sel[0].e)<EPS?sel[0]:n
  render(keep?keep.e:M)}
 const snapTo=m=>[0,...EV,p2m(1000)].reduce((b,e)=>Math.abs(m2p(e)-m2p(m))<Math.abs(m2p(b)-m2p(m))?e:b);
 /* Without snapping the timeline moves in whole months, so it can land exactly on an eruption month and the glow shows */
-$('rg').addEventListener('input',e=>{const m=p2m(+e.target.value);render($('sn').checked?snapTo(m):Math.round(m))});
+let sliderFrame=0,pendingAge=null;
+const flushSlider=()=>{if(pendingAge!==null){const age=pendingAge;pendingAge=null;render(age)}};
+$('rg').addEventListener('input',e=>{const m=p2m(+e.target.value);pendingAge=$('sn').checked?snapTo(m):Math.round(m);if(!sliderFrame)sliderFrame=requestAnimationFrame(()=>{sliderFrame=0;flushSlider()})});
+$('rg').addEventListener('change',flushSlider);
 $('sn').addEventListener('change',e=>{if(e.target.checked)render(snapTo(M))});
 /* Next and Last continue to the far right end of the timeline once there is no eruption left */
 const END=p2m(1000);
