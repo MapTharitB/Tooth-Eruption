@@ -5,9 +5,9 @@
 
 /* Soft Mineral: reference palette, one consistent component system. */
 :root{color-scheme:light;--bg:#e0eaf0;--card:#f0f6f9;--diagram:#d5e4ed;--tx:#0a2943;--mut:#385e7b;--ln:#c8dce8;--trk:#b9cfdd;--acc:#357194;--win:#a66b09;--sel:#173e58;--glow:#ffb400;--gb:#2997e6}
-*{box-sizing:border-box}body{margin:0;color:var(--tx);background:var(--bg);font:16px/1.5 'Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased}main{max-width:1536px;margin:auto;padding:32px 36px}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--acc);outline-offset:3px}h1,h3,p{margin:0}h1{display:flex;align-items:baseline;gap:16px;font-size:38px;letter-spacing:-1.1px;line-height:1.2}h1 small{position:relative;top:-3.5px;font-size:24px;letter-spacing:0;font-weight:400;color:var(--mut);margin-left:0;white-space:nowrap}h3{font-size:20px;line-height:1.3;letter-spacing:-.3px}.mut,.caption{color:var(--mut)}.caption{font-size:13px}.eyebrow{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+*{box-sizing:border-box}body{margin:0;color:var(--tx);background:var(--bg);font:16px/1.5 'Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased}main{margin:auto;padding:32px 36px}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--acc);outline-offset:3px}h1,h3,p{margin:0}h1{display:flex;align-items:baseline;gap:16px;font-size:38px;letter-spacing:-1.1px;line-height:1.2}h1 small{position:relative;top:-3.5px;font-size:24px;letter-spacing:0;font-weight:400;color:var(--mut);margin-left:0;white-space:nowrap}h3{font-size:20px;line-height:1.3;letter-spacing:-.3px}.mut,.caption{color:var(--mut)}.caption{font-size:13px}.eyebrow{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
 .header{--credit-gap:16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px var(--credit-gap);min-height:62px;margin-bottom:18px}.header>div{flex-shrink:0}.header h1{gap:var(--credit-gap);white-space:nowrap}.settings{display:flex;align-items:center;gap:11px;border:1px solid var(--ln);border-radius:14px;padding:7px 12px;background:var(--card)}.setting{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--tx)}.segmented{display:flex;gap:2px;border:1px solid var(--ln);border-radius:9px;background:#e8f1f7;padding:2px}.segmented button{min-height:38px;padding:8px 16px;border:0;border-radius:7px;color:var(--tx);background:transparent;font-size:14px;font-weight:500;white-space:nowrap}.segmented button.on{color:#fff;background:var(--acc);box-shadow:0 2px 4px #204b6418}
-.card{border:1px solid var(--ln);border-radius:16px;background:var(--card)}.diagram-card{border:0;background:none}.status{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;min-height:76px;padding:14px 28px;margin-bottom:12px;border:1px solid var(--ln);border-radius:16px;background:var(--card)}.status>div+div{border-left:1px solid var(--ln);padding-left:28px}.stage,.counts{font-size:20px;font-weight:600;white-space:nowrap}.diagram-surface{position:relative;background:var(--diagram);border:1px solid var(--ln);border-radius:16px;overflow:hidden}.diagram-scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#9bb8cb transparent;padding:8px 12px}.diagram-scroll svg{display:block;width:100%;min-width:760px;height:340px}.mouth-age{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(600px,90%);height:72px;text-align:center;pointer-events:none;display:flex;flex-direction:column;justify-content:center;isolation:isolate}.mouth-age:before{content:'';position:absolute;inset:0 18%;background:var(--diagram);border-radius:50%;filter:blur(12px);z-index:-1}.mouth-age .caption{font-size:12px;margin-bottom:0}.age{font-size:36px;font-weight:700;line-height:1.35;letter-spacing:-.8px;font-variant-numeric:tabular-nums;white-space:nowrap}.swipe-hint{display:none;text-align:center;font-size:11px;color:var(--mut);padding:0 0 8px}.legend{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:10px 20px 0;font-size:12px;color:var(--mut)}.legend span{display:inline-flex;align-items:center;gap:7px}.legend .orientation{display:none}.sw{display:inline-block;width:12px;height:12px;border-radius:4px;border:1.5px solid}.primary-key{background:#9bcff2;border-color:#4e91c1}.permanent-key{background:#f6ebd1;border-color:#ad945e}.window-key{border:2px solid var(--win)}
+.card{border:1px solid var(--ln);border-radius:16px;background:var(--card)}.diagram-card{border:0;background:none}.status{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;min-height:76px;padding:14px 28px;margin-bottom:12px;border:1px solid var(--ln);border-radius:16px;background:var(--card)}.status>div+div{border-left:1px solid var(--ln);padding-left:28px}.stage,.counts{font-size:20px;font-weight:600;white-space:nowrap}.diagram-surface{position:relative;background:var(--diagram);border:1px solid var(--ln);border-radius:16px;overflow:hidden}.diagram-scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#9bb8cb transparent;padding:8px 12px}.diagram-scroll svg{display:block;width:100%;min-width:760px;height:340px}.mouth-age{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(600px,90%);height:72px;text-align:center;pointer-events:none;display:flex;flex-direction:column;justify-content:center;isolation:isolate}.mouth-age:before{content:'';position:absolute;inset:0 18%;background:var(--diagram);border-radius:50%;filter:blur(12px);z-index:-1}.mouth-age .caption{font-size:12px;margin-bottom:0}.age{font-size:36px;font-weight:700;line-height:1.35;letter-spacing:-.8px;font-variant-numeric:tabular-nums;white-space:nowrap}.swipe-hint{display:none;text-align:center;font-size:11px;color:var(--mut);padding:0 0 8px}.legend{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:10px 20px 0;font-size:12px;color:var(--mut)}.legend span{display:inline-flex;align-items:center;gap:7px}.legend .orientation{display:none}.sw{display:inline-block;width:12px;height:12px;border-radius:4px;border:1.5px solid}.primary-key{background:#aed7f4;border-color:#4e91c1}.permanent-key{background:#f6ebd1;border-color:#ad945e}.window-key{border:2px solid var(--win)}
 .sh{stroke-width:1;stroke-linejoin:round}.pr{fill:url(#primaryEnamel);stroke:#4e91c1}.pe{fill:url(#permanentEnamel);stroke:#d5bf91}.gh .sh{fill:transparent;stroke-dasharray:4 4;stroke-width:1.5}.gh .pr{stroke:#739fb8}.gh .pe{stroke:#b29b74}.lb{font-size:13px;font-weight:600;fill:#12344b;text-anchor:middle;pointer-events:none}.gh .lb{fill:#08283c}.bd:focus-visible .sh,.gh:focus-visible .sh{stroke:var(--acc);stroke-width:2}
 .halo{display:none;pointer-events:none;stroke-width:13.5;stroke-linejoin:round}.hp{fill:var(--gb);stroke:var(--gb)}.he{fill:var(--glow);stroke:var(--glow)}.glow .halo,.gout .halo{display:inline}.glow .halo{animation:glow 1.3s ease-in-out infinite alternate}.gout .halo{animation:gfade .45s ease-out forwards}.glow .hp{animation-name:primaryGlow}@keyframes primaryGlow{from{opacity:.55}to{opacity:.78}}@keyframes glow{from{opacity:.42}to{opacity:.65}}@keyframes gfade{from{opacity:var(--go,.5)}to{opacity:0}}.bd,.hg,.mask-tooth{transform-box:view-box;transform-origin:0 0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s}.bd,.gh{cursor:pointer}.gh{transition:opacity .4s}
 .timeline-card{padding:16px 28px 20px;margin-top:12px}.timeline-head{display:flex;align-items:center;justify-content:space-between;min-height:28px;margin-bottom:4px}.timeline-head h3{font-size:14px;font-weight:600}.snap{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--tx);cursor:pointer;min-height:32px}.snap input{appearance:none;width:34px;height:20px;border-radius:20px;background:#91aaba;position:relative;margin:0;cursor:pointer}.snap input:checked{background:var(--acc)}.snap input:after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;background:#fff;border-radius:50%;transition:transform .15s}.snap input:checked:after{transform:translateX(14px)}.sl{position:relative;height:44px}.in{position:absolute;left:14px;right:14px;inset-block:0}.trk{position:absolute;inset-inline:0;top:12px;height:20px;background:var(--trk);border-radius:6px}.band{position:absolute;top:12px;height:20px;background:var(--win);opacity:.35;border-radius:4px}.et{position:absolute;top:15px;height:14px;width:3px;margin-left:-1.5px;border-radius:2px;pointer-events:none}.et.p{background:#3f7b9f}.et.e{background:#88703c}.mk{position:absolute;top:10px;height:24px;width:3px;margin-left:-1.5px;background:var(--win);border-radius:2px}input[type=range]{appearance:none;position:absolute;inset:0;width:100%;margin:0;background:transparent;cursor:pointer}input[type=range]::-webkit-slider-runnable-track{height:44px;background:transparent}input[type=range]::-webkit-slider-thumb{appearance:none;width:28px;height:28px;margin-top:8px;border-radius:50%;background:var(--acc);border:4px solid var(--card);box-shadow:0 0 0 1.5px var(--acc)}input[type=range]::-moz-range-track{background:transparent}input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--acc);border:4px solid var(--card);box-shadow:0 0 0 1.5px var(--acc)}.tk{position:relative;height:24px;margin:0 14px;color:var(--mut);font-size:12px}.tk span{position:absolute;transform:translateX(-50%)}.tk .y{color:var(--mut)}.ctl{display:flex;gap:14px;max-width:1040px;margin:12px auto 0}.ctl button{display:flex;justify-content:center;align-items:center;gap:10px;flex:1;min-height:46px;padding:10px 12px;border:1px solid var(--ln);border-radius:9px;background:transparent;color:var(--tx);font-size:14px;font-weight:500}.ctl button.w{flex:1.4}.ctl button:hover{background:#e0edf5}.ctl #nx{background:var(--acc);border-color:var(--acc);color:white}.ctl #nx:hover{background:#2d6282}.ctl svg{width:16px;height:16px;flex:none}.ctl button:active{transform:translateY(1px)}#mdesc{font-size:11px;color:var(--mut);margin:10px 4px 14px}
@@ -25,7 +25,6 @@
 @media(max-width:899px){.diagram-scroll{overflow:hidden;padding:8px 6px}.diagram-scroll svg{min-width:0;height:260px}.arch-name{display:none}.patient-orientation{display:none}.lb{font-size:15px}.mouth-age{top:50%}.swipe-hint{display:none!important}}
 @media(max-width:520px){.diagram-scroll svg{height:170px}.lb{font-size:16px}}
 /* Scale the complete mouth uniformly with the available screen width. */
-main{max-width:none}
 .diagram-scroll svg{min-width:0;height:auto;aspect-ratio:960/300}
 .mouth-age{top:50%}
 .mouth-age .caption{position:absolute;left:0;right:0;bottom:calc(50% + 24px)}
@@ -51,15 +50,16 @@ main{max-width:none}
 @media(max-width:520px){.settings-divider{display:block;font-size:16px}.sequence-heading h3{font-size:19px}.sequence-row{grid-template-columns:1fr;gap:10px;padding:12px 8px}.sequence-label{flex-direction:row;justify-content:flex-start;align-items:center;gap:8px;border:0;padding:0}.sequence-label br{display:none}.sequence-label>span{margin:0}.sequence{gap:3px}.sequence-circle{width:24px;height:24px;font-size:12px}.sequence-name{font-size:9px}.sequence li:not(:last-child):after{right:-4px;top:1px;font-size:14px}}
 /* Tooth focus follows the crown silhouette instead of the SVG bounding box. */
 #sv [role="button"]:focus{outline:none}
-@media(min-width:1200px) and (orientation:landscape){.age{font-size:52px}.mouth-age{height:88px}.mouth-age .caption{bottom:calc(50% + 36px)}}
+@media(min-width:1200px) and (orientation:landscape){main{max-width:1536px;padding-inline:clamp(48px,5vw,96px)}.diagram-scroll svg{max-height:clamp(240px,calc(100svh - 560px),460px)}.age{font-size:52px}.mouth-age{height:88px}.mouth-age .caption{bottom:calc(50% + 36px)}}
+@media(min-width:1200px) and (max-height:950px) and (orientation:landscape){.age{font-size:36px}.mouth-age{height:72px}.mouth-age .caption{font-size:10px;bottom:calc(50% + 24px)}}
 .arch-annotation{display:none}
 @media(max-width:899px){
- .arch-annotation{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px 0;font-size:11px;line-height:1.3;color:var(--mut)}
- .arch-annotation strong{font-weight:600;color:var(--tx)}
+ .arch-annotation{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;padding:8px 10px 0;font-size:11px;line-height:1.3;color:var(--mut)}
+ .arch-annotation strong{font-weight:600;color:var(--tx);text-align:left;white-space:nowrap}.arch-annotation span{white-space:nowrap}
  .arch-annotation.lower{padding:0 10px 8px}
  .mouth-age{top:50%}
 }
-@media(max-width:520px){.settings{width:100%}.arch-annotation{font-size:10px;flex-wrap:wrap;justify-content:center;gap:2px 12px}.arch-annotation strong{flex-basis:100%;text-align:center}}
+@media(max-width:520px){.settings{width:100%}.arch-annotation{font-size:10px;grid-template-columns:1fr;text-align:center}.arch-annotation strong{display:none}}
 @media(max-width:360px){.settings{gap:4px;padding-inline:6px}.setting{gap:4px;font-size:10px}.settings .segmented button{font-size:11px}}
 </style></head><body><main>
 
@@ -145,13 +145,9 @@ mk('defs',{},svg).innerHTML='<clipPath id="cu"><rect x="0" y="'+UG+'" width="960
 // Soft rose tissue is behind the teeth; no opaque bars cover crown movement.
 mk('defs',{},svg).innerHTML=`
  <linearGradient id="gumTint"><stop stop-color="#df9fa9" stop-opacity="0"/><stop offset=".08" stop-color="#df9fa9" stop-opacity=".82"/><stop offset=".92" stop-color="#df9fa9" stop-opacity=".82"/><stop offset="1" stop-color="#df9fa9" stop-opacity="0"/></linearGradient>
- <linearGradient id="primaryEnamel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#93cbf0"/><stop offset=".5" stop-color="#a9d8f7"/><stop offset="1" stop-color="#83bfe9"/></linearGradient>
+ <linearGradient id="primaryEnamel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a4d2f1"/><stop offset=".5" stop-color="#b7ddf6"/><stop offset="1" stop-color="#99caec"/></linearGradient>
  <linearGradient id="permanentEnamel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff3db"/><stop offset=".55" stop-color="#f6ebd3"/><stop offset="1" stop-color="#ecd9b6"/></linearGradient>`;
 [UG-19,LG].forEach(y=>mk('rect',{class:'gingiva',x:20,y,width:920,height:19,rx:8,fill:'url(#gumTint)','pointer-events':'none'},svg));
-// Current-event cutout registry. Cohort masks below reuse its animated crown
-// geometry, retaining their own cutouts during fade without blocking newer halos.
-const glowMask=mk('mask',{id:'glowShield',maskUnits:'userSpaceOnUse',x:0,y:0,width:960,height:300,'mask-type':'luminance'},mk('defs',{},svg));
-mk('rect',{width:960,height:300,fill:'white'},glowMask);
 const cutoutDefs=mk('defs',{},svg);
 const gG=mk('g',{},svg),gU=mk('g',{'clip-path':'url(#cu)'},svg),gL=mk('g',{'clip-path':'url(#cl)'},svg);
 /* Foreground halos never intercept tooth interaction. Masks belong to cohorts. */
@@ -171,18 +167,14 @@ function shape(t,p,x){const d=t.up?1:-1,a={class:x||'sh '+(t.pri?'pr':'pe')};
  if(x)a.filter='url(#hb)';
  return mk('path',{d:CROWNS[t.sh],transform:crownTransform(t),...a},p)}
 T.forEach(t=>{const cx=480+t.side*(t.n-.5)*48,gy=t.up?UG:LG,d=t.up?1:-1;t.h=t.ch/t.s;
- const maskPosition=t.maskPosition=mk('g',{transform:`translate(${cx},${gy})`},glowMask);
- // One animated cutout geometry is reused by the current-event and cohort masks.
- t.otherCohortCutouts=[];
+ // Shared animated crown geometry for active cohort masks.
  t.maskBody=mk('g',{id:`cutout-${t.fdi}`,class:'mask-tooth'},cutoutDefs);
- mk('use',{href:`#cutout-${t.fdi}`},maskPosition);
- maskPosition.style.opacity='0';
  mk('path',{d:CROWNS[t.sh],transform:crownTransform(t),fill:'black',stroke:'black','stroke-width':1,'stroke-linejoin':'round'},t.maskBody);
  const lab=(p)=>{const x=mk('text',{y:d*t.ch/t.s*.48+4,class:'lb','font-size':t.pri?14:12},p);return x};
  t.gh=mk('g',{transform:`translate(${cx},${gy}) scale(${t.s})`,class:'gh'},gG);shape(t,t.gh);t.ghl=lab(t.gh);
  t.haloLayer=mk('g',{opacity:t.pri?1:.7},t.up?hU:hL);
  const ho=t.haloPosition=mk('g',{transform:`translate(${cx},${gy})`},t.haloLayer);t.hg=mk('g',{class:'hg'},ho);t.halo=shape(t,t.hg,'halo '+(t.pri?'hp':'he'));
- t.hg.addEventListener('animationend',e=>{if(e.animationName=='gfade'){t.hg.classList.remove('gout');t.maskPosition.style.opacity='0'}});
+ t.hg.addEventListener('animationend',e=>{if(e.animationName=='gfade'){t.hg.classList.remove('gout');syncCohortMasks()}});
  const o=t.bodyPosition=mk('g',{transform:`translate(${cx},${gy})`},t.up?gU:gL);t.body=mk('g',{class:'bd'},o);shape(t,t.body);t.bl=lab(t.body);
  [t.gh,t.body].forEach(g=>{
   g.setAttribute('role','button');g.setAttribute('aria-label',`${t.up?'Maxillary':'Mandibular'} ${t.pri?'primary':'permanent'} ${t.name}, FDI ${t.fdi}`);
@@ -200,30 +192,50 @@ T.forEach(t=>{const cx=480+t.side*(t.n-.5)*48,gy=t.up?UG:LG,d=t.up?1:-1;t.h=t.ch
    edge+=slot;
    [per,pri].filter(Boolean).forEach(t=>{
     t.cx=cx;t.gy=gy;
-    [t.maskPosition,t.haloPosition,t.bodyPosition].forEach(g=>g.setAttribute('transform',`translate(${cx},${gy})`));
+    [t.haloPosition,t.bodyPosition].forEach(g=>g.setAttribute('transform',`translate(${cx},${gy})`));
     t.gh.setAttribute('transform',`translate(${cx},${gy}) scale(${t.s})`);
    });
   }
  }
-// Each source has immutable eruption cohorts. A cohort's own faces stay cut out
-// throughout its pulse AND fade, without cutting holes in any later cohort's halo.
-// Each mask is a union of its own cohort and current glowing crowns, with each
-// crown included once. A single mask avoids double-antialiasing at the fade handoff.
+// Cohort membership is immutable; only visible halos own live SVG masks.
+const cohorts=new Map(),activeMasks=new Map();
 ['rg','ag'].forEach((key,source)=>{
- const ages=[...new Set(T.map(t=>t[key][0]*(t.pri?1:12)))];
- ages.forEach(age=>{
-  const id=`cohort-${source}-${age}`;
-  const mask=mk('mask',{id,maskUnits:'userSpaceOnUse',x:0,y:0,width:960,height:300,'mask-type':'luminance'},cutoutDefs);
-  mk('rect',{width:960,height:300,fill:'white'},mask);
-  T.forEach(t=>{
-   const own=t[key][0]*(t.pri?1:12)===age;
-   const cutout=mk('use',{href:`#cutout-${t.fdi}`,transform:`translate(${t.cx},${t.gy})`},mask);
-   // An invisible <use> still instantiates animated geometry in SVG engines.
-   // Keep inactive references detached from the crown definition entirely.
-   if(!own){cutout.removeAttribute('href');cutout.style.opacity='0';t.otherCohortCutouts.push(cutout)}
-  });
+ T.forEach(t=>{
+  const id=`cohort-${source}-${t[key][0]*(t.pri?1:12)}`;
+  if(!cohorts.has(id))cohorts.set(id,new Set());
+  cohorts.get(id).add(t);
  });
 });
+function syncCohortMasks(){
+ const glowing=T.filter(t=>t.hg.classList.contains('glow'));
+ const visible=T.filter(t=>t.hg.classList.contains('glow')||t.hg.classList.contains('gout'));
+ const needed=new Set(visible.map(t=>t.cohort));
+ for(const [id,entry] of activeMasks){
+  if(!needed.has(id)){cutoutDefs.removeChild(entry.mask);activeMasks.delete(id)}
+ }
+ for(const id of needed){
+  let entry=activeMasks.get(id);
+  if(!entry){
+   const mask=mk('mask',{id,maskUnits:'userSpaceOnUse',x:0,y:0,width:960,height:300,'mask-type':'luminance'},cutoutDefs);
+   mk('rect',{width:960,height:300,fill:'white'},mask);
+   entry={mask,cutouts:new Map()};activeMasks.set(id,entry);
+  }
+  // Fading cohorts retain their own faces and also protect incoming crowns.
+  const members=new Set([...cohorts.get(id),...glowing]);
+  for(const [t,node] of entry.cutouts){
+   if(!members.has(t)){entry.mask.removeChild(node);entry.cutouts.delete(t)}
+  }
+  for(const t of members){
+   if(!entry.cutouts.has(t))entry.cutouts.set(t,mk('use',{href:`#cutout-${t.fdi}`,transform:`translate(${t.cx},${t.gy})`},entry.mask));
+  }
+ }
+ T.forEach(t=>{
+  const mask=needed.has(t.cohort)?`url(#${t.cohort})`:null;
+  if(t.haloLayer.getAttribute('mask')!==mask){
+   if(mask)t.haloLayer.setAttribute('mask',mask);else t.haloLayer.removeAttribute('mask');
+  }
+ });
+}
 // Keep the shared halo above crowns, tooth labels, and diagram decorations.
 svg.appendChild(hU);svg.appendChild(hL);
 let mode=0,sel=null,M=0,first=0,last=0,EV=[],sourceRevision=0,selectionKey=null,detailKey=null;
@@ -245,8 +257,12 @@ function readOutgoingGlow(reps,m){
 }
 const textIfChanged=(el,value)=>{if(el.textContent!==value)el.textContent=value};
 function render(m){
+ const focused=document.activeElement,focusedTooth=T.find(t=>t.body===focused||t.gh===focused);
  if(sliderFrame){cancelAnimationFrame(sliderFrame);sliderFrame=0;pendingAge=null}
  const cur=currentEruption(m);readOutgoingGlow(cur,m);M=m;let np=0,ne=0;
+ // Attach incoming cutouts before changing their shared crown transforms.
+ cur?choose(cur):clearSel();
+ syncCohortMasks();
  T.forEach(t=>{const st=t.pri?(m<t.e?'pre':m<t.shed?'in':'shed'):(m<t.e?'pre':'in'),d=t.up?1:-1,s=t.s;
   /* Shed primary teeth tilt outward from the midline, so the two sides of the arch mirror each other */
   const tr=st=='pre'?`translateY(${-d*(t.h*s+8)}px) scale(${s})`:st=='in'?`scale(${s})`:`translateY(${d*50}px) rotate(${-t.side*d*14}deg) scale(${s})`;
@@ -262,27 +278,24 @@ function render(m){
   }
   const iw=m>=t.lo&&m<=t.hi&&(gv||st=='in');if(t.renderWindow!==iw){t.renderWindow=iw;t.gh.classList.toggle('win',iw);t.body.classList.toggle('win',iw)}
   if(st=='in')t.pri?np++:ne++});
+ // A focused ghost or shed crown must not remain an invisible keyboard target.
+ if(focusedTooth&&focused.getAttribute('aria-hidden')==='true'){
+  const pair=focusedTooth.pri?focusedTooth.succ:T.find(t=>t.succ===focusedTooth);
+  const target=[focusedTooth,pair].filter(Boolean).flatMap(t=>[t.body,t.gh]).find(node=>node.getAttribute('aria-hidden')==='false');
+  (target||$('rg')).focus({preventScroll:true});
+ }
  textIfChanged(AG,fmt(m));
  ST.textContent=(m<6&&!np?'Before the first tooth':m<first?'Primary dentition':m<last?'Mixed dentition':'Permanent dentition')+' · '+np+' primary + '+ne+' permanent';
  textIfChanged($('stage'),ST.textContent.split(' · ')[0]);
  textIfChanged($('counts'),np+' primary · '+ne+' permanent');
  if($('rg').getAttribute('aria-valuetext')!==fmt(m))$('rg').setAttribute('aria-valuetext',fmt(m));
  $('rg').value=Math.round(m2p(m));
- cur?choose(cur):clearSel()
 }
 const evt=e=>T.filter(x=>x.e==e&&x.side<0),INFO0=$('info').innerHTML,same=(a,b)=>a.pri==b.pri&&a.n==b.n&&a.up==b.up;
-function shieldCurrentTooth(t,on){
- if(t.shieldOn===on)return;t.shieldOn=on;
- const opacity=on?'1':'0';
- t.maskPosition.style.opacity=opacity;
- t.otherCohortCutouts.forEach(cutout=>{if(on)cutout.setAttribute('href',`#cutout-${t.fdi}`);else cutout.removeAttribute('href');cutout.style.opacity=opacity});
-}
 /* Glow turns on instantly and fades out over 0.45s from whatever brightness the pulse had reached (class gout) */
 function setGlow(x,on){const h=x.hg;
  if(on===h.classList.contains('glow'))return;
- if(on){shieldCurrentTooth(x,true);h.classList.remove('gout');h.classList.add('glow');return}
- // A previous eruption must stop cutting holes in the new foreground halo immediately.
- shieldCurrentTooth(x,false);
+ if(on){h.classList.remove('gout');h.classList.add('glow');return}
  if(!h.classList.contains('glow'))return;
  h.style.setProperty('--go',x.fadeOpacity??getComputedStyle(x.halo).opacity??.5);
  h.classList.remove('glow');h.classList.add('gout')}
@@ -312,7 +325,7 @@ function pick(t){
 function setMode(i){const k=MODES[i],keep=sel&&Math.abs(M-sel[0].e)<EPS?sel[0]:null;
  sourceRevision++;
  /* Eruption age, window start and window end all come from the chosen source, in months */
- T.forEach(t=>{[t.lo,t.hi]=t[k].map(v=>v*(t.pri?1:12));t.e=t.lo;t.haloLayer.setAttribute('mask',`url(#cohort-${i}-${t.e})`)});
+ T.forEach(t=>{[t.lo,t.hi]=t[k].map(v=>v*(t.pri?1:12));t.e=t.lo;t.cohort=`cohort-${i}-${t.e}`});
  T.forEach(t=>{if(t.pri)t.shed=t.succ.e});
  first=Math.min(...T.filter(t=>!t.pri).map(t=>t.e));last=Math.max(...T.filter(t=>t.pri).map(t=>t.shed));
  EV=[...new Set(T.map(t=>t.e))].sort((a,b)=>a-b);
@@ -335,8 +348,12 @@ function goPrev(){const p=EV.filter(e=>e<M-EPS).pop();render(p!=null?p:0)}
 $('pv').addEventListener('click',goPrev);
 [0,6,12,18,24,30].forEach(m=>{const s=document.createElement('span');s.textContent=m+(m?'m':'');s.style.left=m2p(m)/10+'%';$('tk').appendChild(s)});
 [3,6,9,12,15,18,21].forEach(y=>{const s=document.createElement('span');s.className='y';s.textContent=y+'y';s.style.left=m2p(y*12)/10+'%';$('tk').appendChild(s)});
-$('l0').addEventListener('click',()=>{mode=0;$('l0').classList.add('on');$('l1').classList.remove('on');relabel()});
-$('l1').addEventListener('click',()=>{mode=1;$('l1').classList.add('on');$('l0').classList.remove('on');relabel()});
+function setLabels(value){
+ mode=value;
+ [0,1].forEach(i=>{$('l'+i).classList.toggle('on',i===mode);$('l'+i).setAttribute('aria-pressed',String(i===mode))});
+ relabel();
+}
+[0,1].forEach(i=>$('l'+i).addEventListener('click',()=>setLabels(i)));
 MODES.forEach((_,i)=>$('m'+i).addEventListener('click',()=>setMode(i)));
 /* Keyboard.
    Snapping on: Left/Right step to the previous/next eruption; holding the key repeats the step every 0.4 second.
@@ -357,11 +374,6 @@ document.addEventListener('keydown',e=>{const dir=keyDir(e);
 document.addEventListener('keyup',e=>{if(kh&&keyDir(e)==kh.dir)stopKey()});
 window.addEventListener('blur',stopKey);
 relabel();setMode(0);
-
-// Presentation helpers do not change eruption state or timeline navigation.
-['l0','l1'].forEach(id=>$(id).addEventListener('click',()=>{
- ['l0','l1'].forEach(key=>$(key).setAttribute('aria-pressed',String($(key).classList.contains('on'))))
-}));
 
 const viewport=$('diagramScroll');
 const fitMouth=()=>{
